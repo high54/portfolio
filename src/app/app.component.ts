@@ -111,8 +111,6 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
 
-
-
   private loader(): void {
     this.router.events.subscribe((event: Event) => {
       switch (true) {
