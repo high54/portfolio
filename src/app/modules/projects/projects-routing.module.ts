@@ -5,7 +5,13 @@ import * as fromContainers from './containers';
 const routes: Routes = [
     {
         path: '',
-        component: fromContainers.ProjectsComponent
+        component: fromContainers.ProjectsComponent,
+        data: {
+            breadcrumb: {
+                label: 'Projets',
+                url: 'projects'
+            }
+        }
     }
 ];
 
