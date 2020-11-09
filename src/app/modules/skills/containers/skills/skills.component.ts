@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // Services
 import { SkillsService } from '../../services';
+import { AppService } from 'src/app/app.service';
 // Models
 import { Skill } from '../../models/skill.model';
 
@@ -12,10 +13,12 @@ import { Skill } from '../../models/skill.model';
 export class SkillsComponent implements OnInit {
 
   constructor(
-    private skillsService: SkillsService
+    private skillsService: SkillsService,
+    private appService: AppService
   ) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
+    this.appService.title = 'Compétences';
   }
 
   get skills(): Skill[] {

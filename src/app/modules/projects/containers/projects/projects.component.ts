@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // Services
 import { ProjectsService } from '../../services';
+import { AppService } from 'src/app/app.service';
 // Models
 import { Project } from '../../models/project.model';
 
@@ -12,10 +13,12 @@ import { Project } from '../../models/project.model';
 export class ProjectsComponent implements OnInit {
 
   constructor(
-    private projectsService: ProjectsService
+    private projectsService: ProjectsService,
+    private appService: AppService
   ) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
+    this.appService.title = 'Projets personnel';
   }
 
   get projects(): Project[] {

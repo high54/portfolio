@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // Services
 import { ExperiencesService } from '../../services';
+import { AppService } from 'src/app/app.service';
 // Models
 import { Experience } from '../../models/experience.model';
 
@@ -12,10 +13,12 @@ import { Experience } from '../../models/experience.model';
 export class ExperiencesComponent implements OnInit {
 
   constructor(
-    private expService: ExperiencesService
+    private expService: ExperiencesService,
+    private appService: AppService
   ) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
+    this.appService.title = 'Expériences professionnelle';
   }
 
   get experiences(): Experience[] {
