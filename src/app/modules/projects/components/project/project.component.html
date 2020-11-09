@@ -1,8 +1,11 @@
-<h2>{{ project.title }}</h2>
-<p>
-    {{ project.description }}
-</p>
-<a [href]="project.link">
-    <img [src]="project.img">
-</a>
-<hr>
+<mat-card class="card" (click)="openUrl(project)">
+    <mat-card-header>
+        <mat-card-title>{{ project.title }}</mat-card-title>
+    </mat-card-header>
+        <img [src]="project.img">
+    <mat-card-content>
+        <p>
+            {{ project.description }}
+        </p>
+    </mat-card-content>
+</mat-card>

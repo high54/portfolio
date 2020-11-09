@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 // Models
 import { Project } from '../../models/project.model';
 
@@ -7,11 +7,12 @@ import { Project } from '../../models/project.model';
   templateUrl: './project.component.html',
   styleUrls: ['./project.component.scss']
 })
-export class ProjectComponent implements OnInit {
+export class ProjectComponent {
   @Input() project: Project;
   constructor() { }
 
-  ngOnInit(): void {
+  public openUrl(project): void {
+    window.open(project.link, '_blank');
   }
 
 }

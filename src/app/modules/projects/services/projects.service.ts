@@ -23,14 +23,14 @@ export class ProjectsService {
       0,
       'Ng Fast App',
       `Création d'une CLI pour l'automatisation de la création d'application sous Angular, avec l'installation d'Angular Material, l'ouverture de VS Code et de lancement du serveur de développement.`,
-      'https://github-link-card.s3.ap-northeast-1.amazonaws.com/high54/ngfast.png',
+      'assets/projects/ngfast.png',
       'https://github.com/high54/ngfast'
     );
     const ngxAgenda = new Project(
       1,
-      'Ngx Agenda',
+      'Ng Agenda',
       `Création d'un agenda comme celui de Google Agenda pour Angular.`,
-      'https://github-link-card.s3.ap-northeast-1.amazonaws.com/high54/ng-agenda.png',
+      'assets/projects/ngagenda.png',
       'https://github.com/high54/ng-agenda'
     );
     const angularXStarter = new Project(
