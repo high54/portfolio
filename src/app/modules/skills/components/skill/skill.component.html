@@ -1,0 +1,8 @@
+<mat-card class="card">
+    <mat-card-header>
+        <mat-card-title>{{skill.title}}</mat-card-title>
+        <mat-card-subtitle>
+            <mat-icon *ngFor="let level of  [].constructor(skill.level)" color="accent">star_rate</mat-icon>
+        </mat-card-subtitle>
+    </mat-card-header>
+</mat-card>
