@@ -1,0 +1,73 @@
+<main class="container" [class.dark-theme]="darkMode" [class.is-mobile]="matches">
+  <mat-progress-bar [mode]="progressMode" value="100"></mat-progress-bar>
+  <mat-toolbar color="primary" class="toolbar">
+    <button [attr.aria-label]="btnAriaLabelSideNav" mat-icon-button (click)="snav.toggle()">
+      <mat-icon aria-hidden="true">menu</mat-icon>
+    </button>
+    <h1 class="app-name">{{ title }}</h1>
+    <span class="spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+
+
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item [matMenuTriggerFor]="themes">
+        <mat-icon>settings_brightness</mat-icon>
+        Apparence : {{ darkMode ? 'Thème foncé' : 'Thème clair'}}
+      </button>
+    </mat-menu>
+
+    <mat-menu #themes="matMenu">
+      <form [formGroup]="themeForm">
+        <mat-radio-group (change)="changeTheme()" formControlName="theme" class="example-radio-group">
+          <mat-radio-button [value]="false" class="example-radio-button">
+            Thème clair
+          </mat-radio-button>
+          <mat-radio-button [value]="true" class="example-radio-button">
+            Thème foncé
+          </mat-radio-button>
+        </mat-radio-group>
+      </form>
+
+    </mat-menu>
+
+
+  </mat-toolbar>
+
+  <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="matches ? 56 : 0">
+    <mat-sidenav #snav [opened]="matches ? false : true" [mode]="matches ? 'over' : 'side'" [fixedInViewport]="matches"
+      fixedTopGap="56">
+
+      <mat-nav-list>
+
+        <a mat-list-item routerLink="experiences" i18n="site navigation|Link to the docs presentation page"
+          routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+          true}">Expériences</a>
+
+        <a mat-list-item routerLink="skills" i18n="site navigation|Link to the getting started page"
+          routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+        true}">Compétences</a>
+
+        <a mat-list-item routerLink="projects" i18n="site navigation|Link to the progressive web app documentation page"
+          routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+          true}">Projets</a>
+
+        <a mat-list-item routerLink="docs/ssr"
+          i18n="site navigation|Link to the server side rendering documentation page" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact:
+          true}">Diplômes</a>
+
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content #scrollContent>
+      <div class="content">
+        <app-ui-breadcrumb></app-ui-breadcrumb>
+        <router-outlet></router-outlet>
+        <app-ui-footer></app-ui-footer>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+</main>
