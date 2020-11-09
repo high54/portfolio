@@ -165,7 +165,18 @@ body { margin: 0; font-family:  'Raleway', sans-serif; }
 body:not(.dark-theme) {
     transition: all 1s linear;
 }
+.footer-contact {
+    em {
+        font-size: 2rem;
+    }
+    &:hover {
+        color: mat-color($accent);
+        em {
+            font-size: 2rem;
+        }
+    }
 
+}
 .mat-nav-list a.active {
     color: mat-color($accent);
 }
