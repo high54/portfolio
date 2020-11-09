@@ -196,6 +196,9 @@ h1.app-name {
         }
     }
 }
+hr {
+    border: 0.0625rem solid mat-color($accent);
+}
 .card {
     max-width: 25rem;
 }
