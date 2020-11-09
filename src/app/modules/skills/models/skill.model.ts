@@ -2,11 +2,13 @@ export class Skill {
     private _id: number;
     private _title: string;
     private _level: number;
+    private _description: string;
 
-    constructor(id: number, title: string, level: number) {
+    constructor(id: number, title: string, level: number, description: string) {
         this.id = id;
         this.title = title;
         this.level = level;
+        this.description = description;
     }
 
     get id(): number {
@@ -26,5 +28,11 @@ export class Skill {
     }
     set level(level: number) {
         this._level = level;
+    }
+    get description(): string {
+        return this._description;
+    }
+    set description(description: string) {
+        this._description = description;
     }
 }
