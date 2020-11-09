@@ -82,7 +82,7 @@ export class SkillsService {
     );
     const english = new Skill(
       10,
-      'Anglais professionel',
+      'Anglais professionnel',
       4,
       'Parle en anglais izi'
     );
