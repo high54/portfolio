@@ -16,6 +16,9 @@
         "photo"
         "titles";
     }
+    #landing-photo {
+        text-align: center;
+    }
 }
 h2 {
     color:#f1904f;
@@ -43,5 +46,12 @@ ul {
     }
     .c4 {
         color:#828282;
+    }
+}
+
+.center {
+    p {
+        text-align: center;
+        width: auto;
     }
 }
