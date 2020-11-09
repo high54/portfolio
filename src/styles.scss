@@ -1,0 +1,449 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~material-design-icons/iconfont/material-icons.css';
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// **Be sure that you only ever include this mixin once!**
+@include mat-core();
+
+// Define the default theme (same as the example above).
+$bv-brand:  (
+    50 : #e1f1f3,
+    100 : #b4dce1,
+    200 : #82c5cd,
+    300 : #4faeb8,
+    400 : #2a9ca9,
+    500 : #048b9a,
+    600 : #038392,
+    700 : #037888,
+    800 : #026e7e,
+    900 : #015b6c,
+    A100 : #9cecff,
+    A200 : #69e2ff,
+    A400 : #36d8ff,
+    A700 : #1cd3ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$bv-accent: (
+    50 : #fef4ec,
+    100 : #fce3d0,
+    200 : #fad1b0,
+    300 : #f7be90,
+    400 : #f6b079,
+    500 : #f4a261,
+    600 : #f39a59,
+    700 : #f1904f,
+    800 : #ef8645,
+    900 : #ec7533,
+    A100 : #ffffff,
+    A200 : #fffefe,
+    A400 : #ffddcb,
+    A700 : #ffccb2,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+$primary: mat-palette($bv-brand);
+$accent:  mat-palette($bv-accent, 700, 800, 900);
+$light-theme:   mat-light-theme((
+color: (
+primary: $primary,
+accent: $accent,
+)
+));
+
+// Include the default theme styles (color and default density)
+@include angular-material-theme($light-theme);
+
+
+// Define an alternate dark theme.
+$dark-warn:    mat-palette($mat-deep-orange);
+$dark-theme:   mat-dark-theme((
+color: (
+primary: $primary,
+accent: $accent,
+warn: $dark-warn
+)
+));
+$bv-brand: (
+    50 : #e5e9ea,
+    100 : #bec8cb,
+    200 : #93a3a9,
+    300 : #677e87,
+    400 : #47626d,
+    500 : #264653,
+    600 : #223f4c,
+    700 : #1c3742,
+    800 : #172f39,
+    900 : #0d2029,
+    A100 : #68c8ff,
+    A200 : #35b5ff,
+    A400 : #02a3ff,
+    A700 : #0093e7,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+
+// Include the dark color styles inside of a block with a CSS class. You can make this
+// CSS class whatever you want. In this example, any component inside of an element with
+// `.unicorn-dark-theme` will be affected by this alternate dark theme instead of the default theme.
+.dark-theme {
+    
+    .mat-nav-list a.active {
+        color: mat-color($accent);
+    }
+    
+    .content-flex {
+        .card {
+            &:hover {
+                .mat-card-title {
+                    color:  mat-color($accent);
+                }
+                
+            }
+        }
+    }
+    #breadcrumb {
+        #breadcrumb-list{
+            li{
+                a{
+                    color: mat-color($primary);
+                }
+            }
+        }
+    }
+    @include angular-material-color($dark-theme);
+}
+html, body { height: 100%; }
+body { margin: 0; font-family:  'Raleway', sans-serif; }
+body:not(.dark-theme) {
+    transition: all 1s linear;
+}
+
+.mat-nav-list a.active {
+    color: mat-color($accent);
+}
+.content-flex {
+    .card {
+        &:hover {
+            .mat-card-title {
+                color:  mat-color($accent);;
+            }
+        }
+    }
+}
+.card {
+    max-width: 25rem;
+    margin: auto;
+}
+.form-field {
+    width: 100%;
+}
+.checkbox-margin {
+    margin: 0 0.75rem;
+}
+section {
+    padding: 1rem;
+}
+footer {
+    padding-top:1rem;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    font-size: 0.75rem;
+    hr {
+        width: 60%;
+        margin:auto;
+    }
+}
+
+#breadcrumb {
+    display: table;
+    
+    #breadcrumb-list{
+        list-style: none;
+        display: table-cell;
+        width: 100%;
+        padding-left: 1rem;
+        margin: 0;
+        margin-top: 0.5rem;
+        box-sizing: border-box;
+        .icon{
+            font-size: 0.875rem;
+        }
+        
+        li{
+            float:left;
+            a{
+                display: inline-block;
+                text-decoration: none;
+                position:relative;
+                text-align: center;
+                color: mat-color($primary);
+            }
+            &:first-child{
+                a{
+                    padding-left:0.9375rem;
+                    -webkit-border-radius: 0.25rem 0 0 0.25rem;
+                    -moz-border-radius: 0.25rem 0 0 0.25rem;
+                    -ms-border-radius: 0.25rem 0 0 0.25rem;
+                    border-radius: 0.25rem 0 0 0.25rem;
+                    &:before{
+                        border:none;
+                    }
+                }
+            }
+            &:last-child{
+                a{
+                    padding-right:0.9375rem;
+                    -webkit-border-radius: 0 0.25rem 0.25rem 0;
+                    -moz-border-radius: 0 0.25rem 0.25rem 0;
+                    -ms-border-radius: 0 0.25rem 0.25rem 0;
+                    border-radius: 0 0.25rem 0.25rem 0;
+                    &:after{
+                        border:none;
+                    }
+                }
+            }
+            
+            a {
+                &:before{
+                    left:-1.25rem;
+                    border-left-color:transparent;
+                }
+            }
+            span {
+                margin-right: 0.625rem;
+            }
+        }
+    }
+}
+
+/* 
+##Device = Desktops
+##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+    
+    .content-center {
+        width: 60%;
+        margin: auto;
+    }
+    .content-flex {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        
+        .card {
+            flex: 0 32%;
+            margin-bottom: 2%;
+            
+            &:hover {
+                cursor: pointer;
+                box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.2), 0 0.375rem 1.25rem 0 rgba(0, 0, 0, 0.19);
+            }
+        }
+    }
+    
+}
+
+/* 
+##Device = Laptops, Desktops
+##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+    
+    //CSS
+    
+}
+
+/* 
+##Device = Tablets, Ipads (portrait)
+##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    
+    //CSS
+    
+}
+
+/* 
+##Device = Tablets, Ipads (landscape)
+##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    
+    //CSS
+    
+}
+
+/* 
+##Device = Low Resolution Tablets, Mobiles (Landscape)
+##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+    
+    //CSS
+    
+}
+
+/* 
+##Device = Most of the Smartphones Mobiles (Portrait)
+##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+    //CSS
+    .content-center {
+        width: 90%;
+        margin: auto;
+    }
+    .checkbox-margin {
+        margin: 0 0;
+        overflow-wrap: break-word;
+    }
+    
+    
+    .content-flex {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        
+        .card {
+            flex: 0 90%;
+            margin-bottom: 2%;
+            
+            &:hover {
+                cursor: pointer;
+                box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.2), 0 0.375rem 1.25rem 0 rgba(0, 0, 0, 0.19);
+            }
+        }
+    }
+    
+    #breadcrumb{
+        li {
+            a{
+                display:block;
+                background: transparent;
+                text-decoration: none;
+                position:relative;
+                height: 1rem;
+                line-height: 1rem;
+                padding: 0 0.625rem 0 0.3125rem;
+                text-align: center;
+                margin-right: 1.4375rem;
+            }
+            
+            &:nth-child(even){
+                a{
+                    background-color: transparent;
+                    
+                    &:before{
+                        border-color: none;
+                        border-left-color: none;
+                    }
+                    &:after{
+                        border-left-color: none;
+                    }
+                }
+            }
+            
+            a{
+                &:before,
+                &:after{
+                    content: "";
+                    position:absolute;
+                    top: 0;
+                    border: 0;
+                    border-width: 0;
+                    width: 0;
+                    height: 0;
+                }
+                &:before{
+                    left: -1.25rem;
+                    border-left-color:transparent;
+                }
+                &:after{
+                    left: 100%;
+                    border-color:transparent;
+                    border-left-color: none;
+                }
+                &:hover{
+                    background-color: transparent;
+                    
+                    &:before{
+                        border-color: none;
+                        border-left-color:transparent;
+                    }
+                    &:after{
+                        border-left-color: none;
+                    }
+                }
+                &:active{
+                    background-color: transparent;
+                    
+                    &:before{
+                        border-color: none;
+                        border-left-color:transparent;
+                    }
+                    &:after{
+                        border-left-color: none;
+                    }
+                }
+            }
+            
+        }
+        
+    }    
+}
