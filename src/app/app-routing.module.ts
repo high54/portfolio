@@ -3,11 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'experiences'
-  },
-  {
     path: 'experiences',
     loadChildren: () => import('./modules/experiences/experiences.module').then((m) => m.ExperiencesModule)
   },

@@ -1,0 +1,47 @@
+#landing-header {
+    display: grid;
+    grid-template-areas:
+    "titles photo";
+}
+#landing-titles {
+    grid-area: titles;
+    text-align: center;
+}
+#landing-photo {
+    grid-area: photo;
+}
+@media (min-width: 320px) and (max-width: 480px) {
+    #landing-header {
+        grid-template-areas:
+        "photo"
+        "titles";
+    }
+}
+h2 {
+    color:#f1904f;
+}
+img {
+    width: 150px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+ul {
+    list-style: none;
+    padding:0;
+    li {
+        font-size: 1.7rem;
+        font-weight: 900;
+    }
+    .c1 {
+        color:#c1c1c1;
+    }
+    .c2 {
+        color:#afaeae;
+    }
+    .c3 {
+        color:#9a9a9a;
+    }
+    .c4 {
+        color:#828282;
+    }
+}

@@ -24,7 +24,7 @@ import {
   Router
 } from '@angular/router';
 // Services
-import { OnlineOfflineService, StorageService, SynchronizationService } from './core/database/services';
+import { AppService } from './app.service';
 // RxJs
 import { first } from 'rxjs/operators';
 import { interval, concat } from 'rxjs';
@@ -60,13 +60,11 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     private changeDetectorRef: ChangeDetectorRef,
     private media: MediaMatcher,
     private router: Router,
-    private onlineOfflineService: OnlineOfflineService,
-    private storageService: StorageService,
-    private synchronizationService: SynchronizationService,
     @Inject(PLATFORM_ID) private platformId,
     private updates: SwUpdate,
     private appRef: ApplicationRef,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private appService: AppService
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
     if (this.isBrowser) {
@@ -85,17 +83,9 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   public ngOnInit(): void {
+    this.appService.title = 'Accueil';
     if (this.isBrowser) {
       this.checkForUpdate();
-      this.onlineOfflineService.connectionChanged.subscribe((connection) => {
-        if (connection) {
-          this.storageService.openDB().then((isOpen: boolean) => {
-            if (isOpen) {
-              this.synchronizationService.sync();
-            }
-          });
-        }
-      });
     }
   }
   public ngOnDestroy(): void {
@@ -120,7 +110,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
       }
     }
   }
- 
+
 
 
   private loader(): void {
@@ -134,9 +124,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
         case event instanceof NavigationCancel:
         case event instanceof NavigationError: {
           this.scrollContent.getElementRef().nativeElement.scrollTop = 0;
-          setTimeout(() => {
-            this.progressMode = 'determinate';
-          }, 1000);
+          this.progressMode = 'determinate';
           break;
         }
       }

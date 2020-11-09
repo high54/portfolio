@@ -4,7 +4,7 @@
     <button [attr.aria-label]="btnAriaLabelSideNav" mat-icon-button (click)="snav.toggle()">
       <mat-icon aria-hidden="true">menu</mat-icon>
     </button>
-    <h1 class="app-name">{{ title }}</h1>
+    <h1 class="app-name">J<span>B</span></h1>
     <span class="spacer"></span>
     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
       <mat-icon>more_vert</mat-icon>
@@ -40,6 +40,10 @@
       fixedTopGap="56">
 
       <mat-nav-list>
+
+        <a mat-list-item routerLink="/" i18n="site navigation|Link to the docs presentation page"
+          routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+          true}">À propos</a>
 
         <a mat-list-item routerLink="experiences" i18n="site navigation|Link to the docs presentation page"
           routerLinkActive="active" [routerLinkActiveOptions]="{exact:

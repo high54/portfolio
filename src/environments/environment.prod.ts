@@ -4,7 +4,7 @@ export const environment = {
   apiUrlBase: `https://localhost:3000/`,
   authUrlBase: `https://auth.localhost/`,
   authEndpoint: `api/auth/login`,
-  appName: 'Portfolio',
+  appName: 'Julien Bertacco | Portfolio personnel',
   loginRegisterUri: '',
   loginEp: '',
   usersEp: ''
