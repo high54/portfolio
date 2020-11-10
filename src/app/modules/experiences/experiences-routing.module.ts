@@ -9,7 +9,7 @@ const routes: Routes = [
         component: fromContainers.ExperiencesComponent,
         data: {
             breadcrumb: {
-              label: 'Experiences',
+              label: 'Expérience professionnelle',
               url: '/'
             }
           }

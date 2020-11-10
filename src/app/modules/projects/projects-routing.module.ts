@@ -8,7 +8,7 @@ const routes: Routes = [
         component: fromContainers.ProjectsComponent,
         data: {
             breadcrumb: {
-                label: 'Projets',
+                label: 'Projets personnel',
                 url: 'projects'
             }
         }
