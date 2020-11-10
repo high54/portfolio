@@ -1,28 +1,48 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
 // Services
 import { SkillsService } from '../../services';
 import { AppService } from 'src/app/app.service';
 // Models
 import { Skill } from '../../models/skill.model';
+// rxjs
+import { from, fromEvent, Subscription } from 'rxjs';
+import { debounceTime, distinctUntilChanged, pluck } from 'rxjs/operators';
 
 @Component({
   selector: 'app-skills',
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.scss']
 })
-export class SkillsComponent implements OnInit {
-
+export class SkillsComponent implements OnInit, AfterViewInit, OnDestroy {
+  @ViewChild('filterInput') filterInput: ElementRef<HTMLInputElement>;
+  public skills: Skill[] = [];
+  private filterSubscription: Subscription;
   constructor(
     private skillsService: SkillsService,
     private appService: AppService
   ) { }
-
   public ngOnInit(): void {
+    this.skills = this.skillsService.skills.slice();
     this.appService.title = 'Compétences';
   }
-
-  get skills(): Skill[] {
-    return this.skillsService.skills;
+  public ngOnDestroy(): void {
+    if (this.filterSubscription) {
+      this.filterSubscription.unsubscribe();
+    }
+  }
+  public ngAfterViewInit(): void {
+    this.filterSubscription = fromEvent(this.filterInput.nativeElement, 'keyup').pipe(
+      debounceTime(300),
+      distinctUntilChanged(),
+      pluck('target', 'value')
+    ).subscribe((value: string) => {
+      this.skills = this.skillsService.skills.slice();
+      this.skills = this.skills.filter(skill => skill.title.toLowerCase().includes(value.toLowerCase()));
+    });
+  }
+  public clear(): void {
+    this.filterInput.nativeElement.value = '';
+    this.skills = this.skillsService.skills.slice();
   }
 
 }

@@ -1,3 +1,11 @@
+<mat-form-field class="full-width">
+    <mat-label>Filtrer</mat-label>
+    <input matInput type="text" #filterInput>
+    <button mat-button matSuffix mat-icon-button aria-label="Effacer" (click)="clear()">
+        <mat-icon>close</mat-icon>
+    </button>
+</mat-form-field>
+
 <section class="content-flex">
     <app-skill *ngFor="let skill of skills" [skill]="skill"></app-skill>
 </section>

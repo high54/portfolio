@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 // Routes Module
 import { SkillsRoutingModule } from './skills-routing.module';
 // Material Modules
@@ -14,6 +15,7 @@ import * as fromServices from './services';
 @NgModule({
     imports: [
         CommonModule,
+        ReactiveFormsModule,
         SkillsRoutingModule,
         SkillsMaterialModule
     ],
