@@ -1,47 +1,59 @@
-<section id="contact-form">
-    <p>
-        N'hésitez pas à m'envoyer un message !
-    </p>
-    <form name="contact" (ngSubmit)="sendEmail()" [formGroup]="contactForm" data-netlify="true" netlify class="form">
-        
-        <mat-form-field class="mid-width">
-            <mat-label>Nom</mat-label>
-            <input type="text" matInput formControlName="name" placeholder="nom de famille">
-            <mat-error *ngIf="name.hasError('required')">
-                Le champ nom est <strong>requis</strong>
-            </mat-error>
-        </mat-form-field>
+<section id="contact">
 
-        <mat-form-field class="mid-width mr-left">
-            <mat-label>Email</mat-label>
-            <input type="email" matInput formControlName="email" placeholder="Ex. pat@domaine.com">
-            <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
-                Veuillez saisir une adresse email valide.
-            </mat-error>
-            <mat-error *ngIf="email.hasError('required')">
-                Le champ email est <strong>requis</strong>
-            </mat-error>
-        </mat-form-field>
+    <section id="contact-content">
+        <section id="contact-form">
+            <p>
+                N'hésitez pas à m'envoyer un message !
+            </p>
+            <form name="contact" (ngSubmit)="sendEmail()" [formGroup]="contactForm" data-netlify="true" netlify
+                class="form">
 
-        <mat-form-field class="full-width">
-            <mat-label>Sujet</mat-label>
-            <input type="text" matInput formControlName="subject" placeholder="Ex. pat@domaine.com">
-            <mat-error *ngIf="subject.hasError('required')">
-                Le champ sujet est <strong>requis</strong>
-            </mat-error>
-        </mat-form-field>
+                <mat-form-field class="full-width">
+                    <mat-label>Nom</mat-label>
+                    <input type="text" matInput formControlName="name" placeholder="nom de famille">
+                    <mat-error *ngIf="name.hasError('required')">
+                        Le champ nom est <strong>requis</strong>
+                    </mat-error>
+                </mat-form-field>
 
-        <mat-form-field class="full-width">
-            <mat-label>Message</mat-label>
-            <input matInput formControlName="message" placeholder="Ex.je vous contact au sujet de...">
-            <mat-error *ngIf="email.hasError('required')">
-                Le champ message est <strong>requis</strong>
-            </mat-error>
-        </mat-form-field>
-        <div class="actions">
-            <button type="reset" mat-raised-button color="warn">Réinitialiser</button>
-            <button type="submit" mat-raised-button color="primary">Envoyer</button>
-        </div>
+                <mat-form-field class="full-width">
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput formControlName="email" placeholder="Ex. pat@domaine.com">
+                    <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+                        Veuillez saisir une adresse email valide.
+                    </mat-error>
+                    <mat-error *ngIf="email.hasError('required')">
+                        Le champ email est <strong>requis</strong>
+                    </mat-error>
+                </mat-form-field>
 
-    </form>
+                <mat-form-field class="full-width">
+                    <mat-label>Sujet</mat-label>
+                    <input type="text" matInput formControlName="subject" placeholder="Ex. Prise de contact au sujet de...">
+                    <mat-error *ngIf="subject.hasError('required')">
+                        Le champ sujet est <strong>requis</strong>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <mat-label>Message</mat-label>
+                    <input matInput formControlName="message" placeholder="Ex.je vous contact au sujet de...">
+                    <mat-error *ngIf="email.hasError('required')">
+                        Le champ message est <strong>requis</strong>
+                    </mat-error>
+                </mat-form-field>
+                <div class="actions">
+                    <button type="reset" mat-raised-button color="warn">Réinitialiser</button>
+                    <button type="submit" mat-raised-button color="primary">Envoyer</button>
+                </div>
+
+            </form>
+        </section>
+
+        <section id="contact-map">
+            <app-map></app-map>
+        </section>
+
+    </section>
+
 </section>

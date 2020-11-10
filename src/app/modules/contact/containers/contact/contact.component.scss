@@ -1,12 +1,26 @@
+#contact {
+    padding-top:0;
+}
+#contact-content {
+    display: grid;
+    grid-template-areas:
+    "form map";
+    padding-top:0;
+    grid-template-columns: 40% 60%;
+}
 #contact-form {
     text-align: center;
+    grid-area: form;
+    padding-top:0;
 }
-
+#contact-map {
+    grid-area: map;
+    padding-top:0;
+}
 .form {
     min-width: 150px;
     max-width: 500px;
     width: 100%;
-    margin: auto;
 }
 
 .full-width {
@@ -20,4 +34,15 @@
 }
 .actions .mat-button-base {
     margin: 8px 8px 8px 0;
+}
+@media (min-width: 320px) and (max-width: 1024px) {
+
+    #contact-content {
+        display: grid;
+        grid-template-areas:
+        "form"
+        "map";
+        grid-template-columns: 100%;
+
+    }
 }

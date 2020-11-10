@@ -8,6 +8,8 @@ import { ContactRoutingModule } from './contact-routing.module';
 import { ContactMaterialModule } from './contact-material.module';
 // Containers
 import * as fromContainers from './containers';
+// Components
+import * as fromComponents from './components';
 // Services
 import * as fromServices from './services';
 
@@ -20,7 +22,8 @@ import * as fromServices from './services';
         ContactMaterialModule
     ],
     declarations: [
-        ...fromContainers.containers
+        ...fromContainers.containers,
+        ...fromComponents.components
     ],
     providers: [
         ...fromServices.services
