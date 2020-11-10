@@ -1,25 +1,47 @@
-<form name="contact" method="POST" data-netlify="true" netlify>
-    <input type="hidden" name="form-name" value="contact" />
+<section id="contact-form">
     <p>
-        <input type="text" name="firstname" id="firstname" />
-        <label htmlFor="yourname">
-            Your Name:
-        </label> <br />
-        <input type="text" name="name" id="yourname" />
+        N'hésitez pas à me laisser un message ou passer sur mes réseaux sociaux !
     </p>
-    <p>
-        <label htmlFor="youremail">
-            Your Email:
-        </label> <br />
-        <input type="email" name="email" id="youremail" />
-    </p>
-    <p>
-        <label htmlFor="yourmessage">
-            Message:
-        </label> <br />
-        <textarea name="message" id="yourmessage"></textarea>
-    </p>
-    <p>
-        <button type="submit">Send</button>
-    </p>
-</form>
+    <form name="contact" (ngSubmit)="sendEmail()" [formGroup]="contactForm" data-netlify="true" netlify class="form">
+        <mat-form-field class="full-width">
+            <mat-label>Nom</mat-label>
+            <input type="text" matInput formControlName="lastName" placeholder="nom de famille">
+            <mat-error *ngIf="lastName.hasError('required')">
+                Le champ nom est <strong>requis</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Prénom</mat-label>
+            <input type="text" matInput formControlName="firstName" placeholder="prénom">
+            <mat-error *ngIf="firstName.hasError('required')">
+                Le champ prénom est <strong>requis</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Companie</mat-label>
+            <input type="text" matInput formControlName="companyName" placeholder="Nom de l'entreprise">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput formControlName="email" placeholder="Ex. pat@domaine.com">
+            <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+                Veuillez saisir une adresse email valide.
+            </mat-error>
+            <mat-error *ngIf="email.hasError('required')">
+                Le champ email est <strong>requis</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Message</mat-label>
+            <input matInput formControlName="message" placeholder="Ex.je vous contact au sujet de...">
+            <mat-error *ngIf="email.hasError('required')">
+                Le champ message est <strong>requis</strong>
+            </mat-error>
+        </mat-form-field>
+        <div class="actions">
+            <button type="reset" mat-raised-button color="warn">Réinitialiser</button>
+            <button type="submit" mat-raised-button color="primary">Envoyer</button>
+        </div>
+
+    </form>
+</section>
