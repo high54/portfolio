@@ -25,7 +25,7 @@ export class MapComponent implements OnInit {
 
   public ngOnInit(): void {
     const iconFeature = new Feature({
-      geometry: new Point(olProj.fromLonLat([-1.6833, 48.0833])),
+      geometry: new Point(olProj.fromLonLat([-1.665990, 48.106660])),
     });
     const iconStyle = new Style({
       image: new Icon({
@@ -70,7 +70,7 @@ export class MapComponent implements OnInit {
 
       ],
       view: new View({
-        center: olProj.fromLonLat([-1.6833, 48.0833]),
+        center: olProj.fromLonLat([-1.665990, 48.106660]),
         zoom: 4
       })
     });
@@ -80,8 +80,7 @@ export class MapComponent implements OnInit {
       source: new VectorSource({
         features: [
           new Feature({
-            geometry: new Point(olProj.fromLonLat([-1.6833, 48.0833])),
-            name: 'My Polygon'
+            geometry: new Point(olProj.fromLonLat([-1.665990, 48.106660]))
           })
         ]
       })
