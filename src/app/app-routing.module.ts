@@ -17,6 +17,14 @@ const routes: Routes = [
   {
     path: 'degrees',
     loadChildren: () => import('./modules/degrees/degrees.module').then((m) => m.DegreesModule)
+  },
+  {
+    path: 'publications',
+    loadChildren: () => import('./modules/publications/publications.module').then((m) => m.PublicationsModule)
+  },
+  {
+    path: 'contact',
+    loadChildren: () => import('./modules/contact/contact.module').then((m) => m.ContactModule)
   }
 ];
 
