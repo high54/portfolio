@@ -4,20 +4,14 @@ import { Routes, RouterModule } from '@angular/router';
 import * as fromContainers from './containers';
 
 const routes: Routes = [
-    {
-        path: '',
-        component: fromContainers.ExperiencesComponent,
-        data: {
-            breadcrumb: {
-              label: 'Expérience professionnelle',
-              url: '/'
-            }
-          }
-    }
+  {
+    path: '',
+    component: fromContainers.ExperiencesComponent
+  }
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
 export class ExperiencesRoutingModule { }

@@ -6,11 +6,15 @@ import * as fromContainers from './containers';
 const routes: Routes = [
     {
         path: '',
-        component: fromContainers.ContactComponent,
+        component: fromContainers.ContactComponent
+    },
+    {
+        path: 'success',
+        component: fromContainers.SuccessComponent,
         data: {
             breadcrumb: {
-                label: 'Me Contacter !',
-                url: 'contact'
+                label: 'Succcès !',
+                url: 'success'
             }
         }
     }

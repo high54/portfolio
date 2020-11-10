@@ -1,10 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { Router } from '@angular/router';
 // Services
 import { AppService } from 'src/app/app.service';
 import { ContactService } from '../../services';
-// Material
-import { MatSnackBar } from '@angular/material/snack-bar';
 // Rxjs
 import { Subscription } from 'rxjs';
 
@@ -15,19 +14,17 @@ import { Subscription } from 'rxjs';
 })
 export class ContactComponent implements OnInit, OnDestroy {
   public contactForm = this.fb.group({
-    firstName: ['', Validators.required],
-    lastName: ['', Validators.required],
-    companyName: [''],
+    name: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
-    message: ['', Validators.required],
-    'form-name': ['contact', Validators.required]
+    subject: ['', Validators.required],
+    message: ['', Validators.required]
   });
   private sendEmailSub: Subscription;
   constructor(
     private appService: AppService,
     private fb: FormBuilder,
     private contactService: ContactService,
-    private snackBar: MatSnackBar
+    private router: Router
   ) { }
 
   public ngOnInit(): void {
@@ -43,21 +40,15 @@ export class ContactComponent implements OnInit, OnDestroy {
     if (valid) {
       console.log(value);
       this.sendEmailSub = this.contactService.sendEmail(value).subscribe((response) => {
-        console.log(response);
-        this.snackBar.open('Votre email à bien été envoyé.', '', {
-          duration: 5000
-        });
+        this.router.navigateByUrl('contact/success');
       });
     }
   }
-  get firstName(): AbstractControl {
-    return this.contactForm.get('firstName');
+  get name(): AbstractControl {
+    return this.contactForm.get('name');
   }
-  get lastName(): AbstractControl {
-    return this.contactForm.get('lastName');
-  }
-  get companyName(): AbstractControl {
-    return this.contactForm.get('companyName');
+  get subject(): AbstractControl {
+    return this.contactForm.get('subject');
   }
   get email(): AbstractControl {
     return this.contactForm.get('email');

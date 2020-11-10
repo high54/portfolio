@@ -11,7 +11,8 @@ export const environment = {
   appName: 'Julien Bertacco | Portfolio personnel',
   loginRegisterUri: '',
   loginEp: '',
-  usersEp: ''
+  usersEp: '',
+  emailProvider: 'https://formspree.io/f/xjvpovva'
 };
 
 /*

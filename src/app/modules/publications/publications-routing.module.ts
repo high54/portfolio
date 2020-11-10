@@ -6,13 +6,7 @@ import * as fromContainers from './containers';
 const routes: Routes = [
     {
         path: '',
-        component: fromContainers.PublicationsComponent,
-        data: {
-            breadcrumb: {
-                label: 'Publications',
-                url: 'publications'
-            }
-        }
+        component: fromContainers.PublicationsComponent
     }
 ];
 
