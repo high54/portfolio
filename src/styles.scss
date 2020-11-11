@@ -165,6 +165,9 @@ body { margin: 0; font-family:  'Raleway', sans-serif; overscroll-behavior-y: co
 body:not(.dark-theme) {
     transition: all 1s linear;
 }
+p {
+    text-align: justify;
+}
 .footer-contact {
     color: mat-color($primary);
     em {
