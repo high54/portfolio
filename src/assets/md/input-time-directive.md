@@ -1,6 +1,3 @@
-
-![Alt Text](https://dev-to-uploads.s3.amazonaws.com/i/shcp9wlb7cc56twis43a.jpg)
-
 ## Préambule
 
 Je développe actuellement un Agenda de type Google Agenda. Proposant presque toutes les fonctionnalités du dit agenda.

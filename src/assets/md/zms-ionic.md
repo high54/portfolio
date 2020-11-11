@@ -26,33 +26,10 @@ maîtrisé en s'affranchissant :
 Les sources présentées sur cette page sont libres de droits et vous pouvez les utiliser à votre convenance. Par contre, la page de présentation constitue une œuvre intellectuelle protégée par
 les droits d'auteur. Copyright ® 2017 Julien Bertacco. Aucune reproduction, même partielle, ne peut être faite de ce site et de l'ensemble de son contenu : textes, documents, images, etc. sans
 ```
-- I - Introduction..............................................................................................................................................................
-- II - Mise en place de l'environnement de travail.........................................................................................................
-   - II-A - Les IDE.........................................................................................................................................................
-   - II-B - Node.Js et Ionic 3.........................................................................................................................................
-   - II-C - Création du projet sous Eclipse...................................................................................................................
-- III - Mise en place de la base de données.................................................................................................................
-   - III-A - Architecture de la base de données............................................................................................................
-   - III-B - Création des tables......................................................................................................................................
-- IV - Ajout - Récupération - Mise à jour et Suppression..............................................................................................
-   - IV-A - ZetaPush MacroScript - ZMS......................................................................................................................
-   - IV-B - Modèles........................................................................................................................................................
-   - IV-C - Providers....................................................................................................................................................
-- V - Interface Utilisateur : Gestion des séries............................................................................................................
-   - V-A - Page Home.................................................................................................................................................
-   - V-B - Ajout de série.............................................................................................................................................
-   - V-C - Déclaration d'une page dans le fichier app.module.ts...............................................................................
-   - V-D - Erreur lors de la génération d'une page sous Ionic 3................................................................................
-   - V-E - Mise à jour d'une série...............................................................................................................................
-- VI - Interface Utilisateur : Gestion des mangas........................................................................................................
-   - VI-A - Affichage des mangas d'une série............................................................................................................
-   - VI-B - Ajouter un manga......................................................................................................................................
-   - VI-C - Mise à jour d'un manga............................................................................................................................
-- VII - Conclusion.........................................................................................................................................................
-- VIII - Remerciements.................................................................................................................................................
 
 
-## I - Introduction..............................................................................................................................................................
+
+## I - Introduction
 
 Dans ce tutoriel, je vais vous présenter la manière de gérer les bases de données avec ZetaPush, et à titre d'exemple,
 
@@ -72,9 +49,9 @@ L'intégralité du contenu de l'application fonctionnelle est disponible sur Git
 
 Tout d'abord, il est important de mettre en place l'espace de travail.
 
-## II - Mise en place de l'environnement de travail.........................................................................................................
+## II - Mise en place de l'environnement de travail
 
-### II-A - Les IDE.........................................................................................................................................................
+### II-A - Les IDE
 
 Il est possible de tout réaliser à l'aide d'Eclipse, cependant je préfère travailler sur Atom pour le développement en
 
@@ -97,7 +74,7 @@ En haut à droite, cliquez sur Add... puis saisissez les informations suivantes 
 
 Ensuite, cliquez sur Select ALL et Next, finissez l'installation et vous devriez avoir un nouveau menu :
 
-### II-B - Node.Js et Ionic 3.........................................................................................................................................
+### II-B - Node.Js et Ionic 3
 
 Veuillez télécharger et installer **Node.Js**. Je vous conseille de prendre la version stable.
 
@@ -165,7 +142,7 @@ C'est d'ailleurs votre navigateur qui doit s'ouvrir à l'instant. Il vous est po
 
 sous les différents OS pour smartphone pris en charge par Ionic.
 
-### II-C - Création du projet sous Eclipse...................................................................................................................
+### II-C - Création du projet sous Eclipse
 
 Dans un premier temps, il va vous falloir un identifiant et pour cela il suffit de créer un compte gratuitement sur
 
@@ -199,13 +176,13 @@ Pour le Recipe Name, j'ai choisi de mettre : com,whyme,apptuto
 
 Sélectionnez le service à inclure, ici RDBMS pour Relational Database : SQL storage
 
-## III - Mise en place de la base de données.................................................................................................................
+## III - Mise en place de la base de données
 
 Inutile de chercher un hébergement de base de données en ligne. Vous allez utiliser celui proposé par ZetaPush. Il
 
 est aussi possible d'utiliser du NoSQL, mais on restera sur du classique SQL.
 
-### III-A - Architecture de la base de données............................................................................................................
+### III-A - Architecture de la base de données
 
 Pour gérer votre collection, il vous faudra des articles, des BD, Mangas, vidéos, etc.
 
@@ -230,7 +207,7 @@ Résumé
 ```
 Voici globalement les tables nécessaires afin de réaliser l'application.
 
-### III-B - Création des tables......................................................................................................................................
+### III-B - Création des tables
 
 Pour créer les tables sous ZMS, c'est très simple!
 
@@ -289,9 +266,9 @@ Si tout s'est bien passé, vous devriez avoir dans la console un joli success :
 
 ZetaPush a déployé pour vous une base de données dans laquelle vos tables ont été créées.
 
-## IV - Ajout - Récupération - Mise à jour et Suppression..............................................................................................
+## IV - Ajout - Récupération - Mise à jour et Suppression
 
-### IV-A - ZetaPush MacroScript - ZMS......................................................................................................................
+### IV-A - ZetaPush MacroScript - ZMS
 
 Maintenant que vous avez votre base de données, il est temps de mettre en place votre CRUD (Create, Read, Update,
 
@@ -427,7 +404,7 @@ documentation : **https://ref.zpush.io/#main_macros_Syntax**.
 
 L'intégralité des Macros de l'application est disponible sur **GitHub / ZMS**.
 
-### IV-B - Modèles........................................................................................................................................................
+### IV-B - Modèles
 
 Maintenant que vous avez vos Macros, il est nécessaire d'avoir des modèles.
 
@@ -566,7 +543,7 @@ public constructor () { }
 ```
 Tous les modèles sont disponibles dans **src / models du GitHub**.
 
-### IV-C - Providers....................................................................................................................................................
+### IV-C - Providers
 
 Il est temps de lier les MacroScripts à votre application.
 
@@ -705,7 +682,7 @@ ClientProvider,
 ```
 Tous les providers sont disponibles sur **src / providers GitHub**.
 
-## V - Interface Utilisateur : Gestion des séries............................................................................................................
+## V - Interface Utilisateur : Gestion des séries
 
 Vous avez principalement configuré votre espace de travail et mis en place la communication avec la base de
 
@@ -717,7 +694,7 @@ les droits d'auteur. Copyright ® 2017 Julien Bertacco. Aucune reproduction, mê
 l'autorisation expresse de l'auteur. Sinon vous encourez selon la loi jusqu'à trois ans de prison et jusqu'à 300 000 € de dommages et intérêts.
 
 
-### V-A - Page Home.................................................................................................................................................
+### V-A - Page Home
 
 La page Home va vous permettre d'afficher la liste des séries ainsi qu'un bouton renvoyant sur une page avec un
 
@@ -977,7 +954,7 @@ home.html
 ```
 Voici le résultat que vous devriez avoir :
 
-### V-B - Ajout de série.............................................................................................................................................
+### V-B - Ajout de série
 
 Pour chaque ajout de page qui sera faite à l'avenir, il est important de faire la déclaration dans le fichier src/app/
 
@@ -990,7 +967,7 @@ Ionic g page add-serie-page
 ```
 Une fois la commande exécutée, veuillez ajouter la page dans le fichier app.module.ts.
 
-### V-C - Déclaration d'une page dans le fichier app.module.ts...............................................................................
+### V-C - Déclaration d'une page dans le fichier app.module.ts
 
 Effectuez l'import de cette page :
 
@@ -1020,7 +997,7 @@ AddSeriePage,
 ```
 ],
 ```
-### V-D - Erreur lors de la génération d'une page sous Ionic 3................................................................................
+### V-D - Erreur lors de la génération d'une page sous Ionic 3
 
 À l'heure actuelle, lors de la génération d'une page avec Ionic 3, il est possible de rencontrer une erreur dans le fichier
 
@@ -1137,7 +1114,7 @@ la sauvegarde en base de données renvoie lors de la fermeture de la surcouche u
 
 liste et rafraîchir l'affichage. Cela évite de devoir faire appel de nouveau à la base de données.
 
-### V-E - Mise à jour d'une série...............................................................................................................................
+### V-E - Mise à jour d'une série
 
 L'utilisateur n'est jamais parfait! Il est donc indispensable de lui proposer un formulaire pour modifier une série s'il a
 
@@ -1243,11 +1220,11 @@ les droits d'auteur. Copyright ® 2017 Julien Bertacco. Aucune reproduction, mê
 l'autorisation expresse de l'auteur. Sinon vous encourez selon la loi jusqu'à trois ans de prison et jusqu'à 300 000 € de dommages et intérêts.
 
 
-## VI - Interface Utilisateur : Gestion des mangas........................................................................................................
+## VI - Interface Utilisateur : Gestion des mangas
 
 Il est temps de passer à la gestion des mangas!
 
-### VI-A - Affichage des mangas d'une série............................................................................................................
+### VI-A - Affichage des mangas d'une série
 
 Tout d'abord, vous allez ajouter une page mangas :
 
@@ -1432,7 +1409,7 @@ Delete
 
 </ion-content>
 ```
-### VI-B - Ajouter un manga......................................................................................................................................
+### VI-B - Ajouter un manga
 
 ```
 ionic g page add-manga-page
@@ -1577,7 +1554,7 @@ Add-manga-page.html
 <button ion-button color="danger" block (click)="dismiss()">Annuler</button>
 </ion-content>
 ```
-### VI-C - Mise à jour d'un manga............................................................................................................................
+### VI-C - Mise à jour d'un manga
 
 ```
 ionic g page update-manga-page
@@ -1705,7 +1682,7 @@ les droits d'auteur. Copyright ® 2017 Julien Bertacco. Aucune reproduction, mê
 l'autorisation expresse de l'auteur. Sinon vous encourez selon la loi jusqu'à trois ans de prison et jusqu'à 300 000 € de dommages et intérêts.
 
 
-## VII - Conclusion.........................................................................................................................................................
+## VII - Conclusion
 
 On aura passé la plus grande partie du temps à configurer l'environnement ou à modifier le projet sous Ionic.
 
@@ -1727,7 +1704,7 @@ ZetaPush dispose aussi de briques de plus haut niveau pour mettre en place des o
 
 vidéo/audio) à votre application en quelques instants. Je vous montrerai ça lors d'un prochain tutoriel.
 
-## VIII - Remerciements.................................................................................................................................................
+## VIII - Remerciements
 
 Je tiens à remercier **Malick Seck** , Community Manager sur Developpez, pour son implication tout au long de la
 
