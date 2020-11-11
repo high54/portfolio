@@ -3,6 +3,11 @@
     width: 60%;
     margin: auto;
 }
+@media (min-width: 320px) and (max-width: 1024px) {
+    #contact {
+        width: 100%;
+    }
+}
 #contact-content {
     display: grid;
     grid-template-areas:
