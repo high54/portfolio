@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+// Services
+import { AppService } from 'src/app/app.service';
 
 @Component({
   selector: 'app-publications',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PublicationsComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private appService: AppService
+  ) { }
 
   public ngOnInit(): void {
+    this.appService.title = 'Publications';
   }
 
 }

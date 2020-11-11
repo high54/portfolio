@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+// Services
+import { AppService } from 'src/app/app.service';
 
 @Component({
   selector: 'app-zms-ionic',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ZmsIonicComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private appService: AppService
+  ) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
+    this.appService.title = 'Tutoriel ZMS et Ionic 3';
   }
 
 }
