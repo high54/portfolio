@@ -10,6 +10,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 const materialModules: any[] = [
@@ -24,6 +25,7 @@ const materialModules: any[] = [
     MatRadioModule,
     MatSidenavModule,
     MatSlideToggleModule,
+    MatSnackBarModule,
     MatToolbarModule
 ];
 @NgModule({

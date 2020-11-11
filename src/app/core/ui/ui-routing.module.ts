@@ -7,6 +7,10 @@ const routes: Routes = [
     {
         path: '',
         component: fromContainers.LandingPageComponent
+    },
+    {
+        path: 'cookies',
+        component: fromContainers.CookiesComponent
     }
 ];
 

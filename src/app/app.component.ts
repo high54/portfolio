@@ -30,6 +30,7 @@ import { first } from 'rxjs/operators';
 import { interval, concat } from 'rxjs';
 // Angular Material
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 // Components
 import { InstallUpdateComponent } from './core/ui/components';
 
@@ -64,7 +65,8 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     private updates: SwUpdate,
     private appRef: ApplicationRef,
     private fb: FormBuilder,
-    private appService: AppService
+    private appService: AppService,
+    private snackBar: MatSnackBar
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
     if (this.isBrowser) {
@@ -79,6 +81,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   }
   public ngAfterViewInit(): void {
     this.loadTheme();
+    this.checkCookies();
     this.loader();
   }
 
@@ -98,10 +101,22 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     this.darkMode = value.theme;
     localStorage.setItem('darkMode', value.theme.toString());
   }
+  private checkCookies(): void {
+    const cookies = localStorage.getItem('cookies');
+    if (!cookies) {
+
+      const snackBarRef = this.snackBar.open(`L'application utilise des cookies pour sont bon fonctionnement.`, 'Voir les détails');
+      localStorage.setItem('cookies', 'true');
+      snackBarRef.onAction().subscribe(() => {
+        this.router.navigateByUrl('cookies');
+      });
+    }
+  }
 
   private loadTheme(): void {
     if (this.isBrowser) {
       const darkMode = localStorage.getItem('darkMode');
+      console.log(darkMode);
       if (darkMode !== null) {
         this.darkMode = darkMode === 'true';
         this.themeForm.patchValue({
