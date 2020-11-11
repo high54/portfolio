@@ -26,14 +26,16 @@ export class DegreesService {
       'Bac +2 Développeur Logiciel',
       new Date(2016, 0, 1),
       true,
-      `BAC+2 obtenu au sein de l'ENI école informatique à Chartre de Bretagne (Rennes). Diplôme orienté algorithme, langages de programmation et utilisation des frameworks.`
+      `BAC+2 obtenu au sein de l'ENI école informatique à Chartre de Bretagne (Rennes). Diplôme orienté algorithme, langages de programmation et utilisation des frameworks.`,
+      'assets/rapports/bac2-DL.pdf'
     );
     const concepteurDeveloppeur = new Degree(
       2,
       'BAC+4 Concepteur Developpeur Informatique',
       new Date(2017, 0, 1),
       true,
-      `BAC+4 obtenu au sein de l'ENI école informatique à Chartre de Bretagne (Rennes). Diplôme orienté analyse et conception.`
+      `BAC+4 obtenu au sein de l'ENI école informatique à Chartre de Bretagne (Rennes). Diplôme orienté analyse et conception.`,
+      'assets/rapports/bac4-CDI.pdf'
     );
     const mobileWebSpecialist = new Degree(
       1,

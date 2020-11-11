@@ -14,3 +14,8 @@
 <p>
     {{ degree.description }}
 </p>
+<a [attr.href]="degree.report" *ngIf="degree.report" [attr.download]="degree.title" mat-raised-button
+    color="primary">Télécharger le rapport au format
+    PDF</a>
+<br>
+<br>

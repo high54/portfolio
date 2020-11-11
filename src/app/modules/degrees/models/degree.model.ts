@@ -4,12 +4,14 @@ export class Degree {
     private _date: Date;
     private _isObtained: boolean;
     private _description: string;
-    constructor(id: number, title: string, date: Date, isObtained: boolean, description: string) {
+    private _report: string;
+    constructor(id: number, title: string, date: Date, isObtained: boolean, description: string, report?: string) {
         this.id = id;
         this.title = title;
         this.date = date;
         this.isObtained = isObtained;
         this.description = description;
+        this.report = report ? report : null;
     }
 
     get id(): number {
@@ -41,5 +43,11 @@ export class Degree {
     }
     set description(description: string) {
         this._description = description;
+    }
+    get report(): string {
+        return this._report;
+    }
+    set report(report: string) {
+        this._report = report;
     }
 }
