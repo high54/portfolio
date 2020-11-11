@@ -24,7 +24,10 @@ export class ExperiencesService {
       0,
       'Full Stack Enginner',
       'ADB DEV - Cesson Sévigné (35)',
-      `Conception et réalisation d'application.`,
+      `
+      Analyse et conception d'applications Web / Mobile / Desktop et d'API (WebServices) dans le domaine de l'immobilier.
+      Avec : Angular, JavaFX, Ionic, VueJS, ReactJs, Laravel
+      `,
       new Date(2017, 5, 1),
       new Date(2019, 2, 1)
     );
@@ -32,7 +35,7 @@ export class ExperiencesService {
       1,
       'Full Stack Enginner',
       'OKELP - Rennes (35)',
-      `Conception et réalisation d'application.`,
+      `Analyse et conception d'une application pour aider les personnes en situation de handicap dans la vie de tous les jours (Projet Pause).`,
       new Date(2018, 2, 1),
       new Date(2020, 9, 1)
     );
@@ -40,7 +43,7 @@ export class ExperiencesService {
       2,
       'Tech Lead Front End',
       'Sodifrance - Saint Grégoire (35)',
-      `Conception et réalisation d'application.`,
+      `J'ai eu l'occasion d'effectuer plusieurs missions pour Sodifrance : - Recherche et Developpement pour un client souhaitant rapidement mettre au point un prototype d'application dans le domaine du BTP. - Migration d'une application dans le domaine de l'assurance et gestion des incidents pour un grand compte. - Leader technique et Architect Front End pour un client dans le domaine de la certification.`,
       new Date(2019, 2, 1),
       new Date()
     );

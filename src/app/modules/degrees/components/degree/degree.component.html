@@ -1,3 +1,16 @@
-<hr>
-<h2>{{degree.title}}</h2>
+<h2>{{degree.title}} </h2> -
 <h3>{{degree.date | date: 'yyyy'}}</h3>
+<ng-container *ngIf="degree.isObtained; else workInProgress">
+    <mat-icon color="primary">check_circle</mat-icon>
+</ng-container>
+<ng-template #workInProgress>
+    <ng-container>
+        <mat-icon color="accent">pending_actions</mat-icon>
+    </ng-container>
+</ng-template>
+<hr>
+
+
+<p>
+    {{ degree.description }}
+</p>

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-
+import { MatIconModule } from '@angular/material/icon';
 const materialModules: any[] = [
-
+    MatIconModule
 ];
 
 @NgModule({

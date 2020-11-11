@@ -1,6 +1,9 @@
 <h2 mat-dialog-title>{{data.title}}</h2>
-<mat-icon *ngFor="let level of  [].constructor(data.level)" color="accent">star_rate</mat-icon>
-
+<mat-icon *ngFor="let level of  [].constructor(5); let i = index;" [color]="i < data.level ? 'accent':''">
+    star_rate</mat-icon> 
+<hr>
 <mat-dialog-content class="mat-typography">
-    <p> {{data.description}}</p>
+
+    <p>{{ data.description }}</p>
+
 </mat-dialog-content>

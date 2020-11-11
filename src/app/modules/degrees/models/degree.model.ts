@@ -2,11 +2,14 @@ export class Degree {
     private _id: number;
     private _title: string;
     private _date: Date;
-
-    constructor(id: number, title: string, date: Date) {
+    private _isObtained: boolean;
+    private _description: string;
+    constructor(id: number, title: string, date: Date, isObtained: boolean, description: string) {
         this.id = id;
         this.title = title;
         this.date = date;
+        this.isObtained = isObtained;
+        this.description = description;
     }
 
     get id(): number {
@@ -26,5 +29,17 @@ export class Degree {
     }
     set date(date: Date) {
         this._date = date;
+    }
+    get isObtained(): boolean {
+        return this._isObtained;
+    }
+    set isObtained(isObtained: boolean) {
+        this._isObtained = isObtained;
+    }
+    get description(): string {
+        return this._description;
+    }
+    set description(description: string) {
+        this._description = description;
     }
 }
