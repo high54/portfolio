@@ -161,7 +161,7 @@ A700 : #ffffff,
     @include angular-material-color($dark-theme);
 }
 html, body { height: 100%; }
-body { margin: 0; font-family:  'Raleway', sans-serif; }
+body { margin: 0; font-family:  'Raleway', sans-serif; overscroll-behavior-y: contain;}
 body:not(.dark-theme) {
     transition: all 1s linear;
 }
