@@ -8,12 +8,14 @@ import { PublicationsMaterialModule } from './publications-material.module';
 import * as fromContainers from './containers';
 // Components
 import * as fromComponents from './components';
-
+// Ngx Markdown
+import { MarkdownModule } from 'ngx-markdown';
 @NgModule({
     imports: [
         CommonModule,
         PublicationsRoutingModule,
-        PublicationsMaterialModule
+        PublicationsMaterialModule,
+        MarkdownModule
     ],
     declarations: [
         ...fromContainers.containers,
