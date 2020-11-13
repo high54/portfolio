@@ -1,7 +1,6 @@
 import {
   ChangeDetectorRef,
   Component,
-  OnInit,
   OnDestroy,
   AfterViewInit,
   ViewChild,
@@ -39,7 +38,7 @@ import { InstallUpdateComponent } from './core/ui/components';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
+export class AppComponent implements OnDestroy, AfterViewInit {
   @ViewChild('scrollContent', { static: true }) public scrollContent !: MatSidenavContent;
 
   public title = $localize`:Application name:${environment.appName}`;
@@ -83,13 +82,8 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     this.loadTheme();
     this.checkCookies();
     this.loader();
-  }
+    this.checkForUpdate();
 
-  public ngOnInit(): void {
-    this.appService.title = 'Accueil';
-    if (this.isBrowser) {
-      this.checkForUpdate();
-    }
   }
   public ngOnDestroy(): void {
     if (this.isBrowser) {
@@ -102,17 +96,14 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     localStorage.setItem('darkMode', value.theme.toString());
   }
   private checkCookies(): void {
-    const cookies = localStorage.getItem('cookies');
-    if (!cookies) {
-
-      const snackBarRef = this.snackBar.open(`L'application utilise des cookies pour sont bon fonctionnement.`, 'Voir les détails');
+    if (!JSON.parse(localStorage.getItem('cookies'))) {
+      const snackBarRef = this.snackBar.open(`Cette application utilise des cookies pour vous offrir une meilleure expérience. En utilisant cette application, vous acceptez leur utilisation.`, 'Voir les détails');
       localStorage.setItem('cookies', 'true');
       snackBarRef.onAction().subscribe(() => {
         this.router.navigateByUrl('cookies');
       });
     }
   }
-
   private loadTheme(): void {
     if (this.isBrowser) {
       const darkMode = localStorage.getItem('darkMode');
@@ -125,7 +116,6 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
       }
     }
   }
-
   private loader(): void {
     this.router.events.subscribe((event: Event) => {
       switch (true) {
@@ -144,7 +134,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     });
   }
   private checkForUpdate(): void {
-    if (this.updates.isEnabled) {
+    if (this.updates.isEnabled && this.isBrowser) {
       const appIsStable$ = this.appRef.isStable.pipe(first(isStable => isStable === true));
       const everySixHours$ = interval(6 * 60 * 60 * 1000);
       const everySixHoursOnceAppIsStable$ = concat(appIsStable$, everySixHours$);

@@ -10,10 +10,6 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 // Angular Material Module
 import { AppMaterialModule } from './app-material.module';
-// Authentication Module
-import { AuthModule } from './core/auth/auth.module';
-// Database Module
-import { DatabaseModule } from './core/database/database.module';
 // User Interface Module
 import { UIModule } from './core/ui/ui.module';
 // Accessibility Module
@@ -35,8 +31,6 @@ import { MarkdownModule } from 'ngx-markdown';
     FormsModule,
     AppRoutingModule,
     AppMaterialModule,
-    AuthModule,
-    DatabaseModule,
     UIModule,
     AccessibilityModule,
     MarkdownModule.forRoot({ loader: HttpClient }),

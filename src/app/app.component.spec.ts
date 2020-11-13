@@ -12,8 +12,6 @@ import { materialModules } from './mocks/material-modules.mock';
 // Rxjs
 import { of } from 'rxjs';
 import { Observable, Subject } from 'rxjs';
-// Services
-import { OnlineOfflineService, StorageService, SynchronizationService } from './core/database/services';
 // Angular Material
 import { MatDialog } from '@angular/material/dialog';
 import { ElementRef } from '@angular/core';
@@ -76,9 +74,6 @@ describe('AppComponent', () => {
       providers: [
         { provide: SwUpdate, useClass: SwUpdateServerMock },
         { provide: Router, useValue: routerMock },
-        { provide: OnlineOfflineService, useValue: onlineOfflineService },
-        { provide: StorageService, useClass: StorageServiceMock },
-        { provide: SynchronizationService, useValue: synchronizationService },
         { provide: ActivatedRoute, useValue: {} },
         { provide: MatDialog, useValue: dialogMock }
       ]
@@ -93,17 +88,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'angular-x-starter'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('Angular X Starter');
-  });
-
   it(`Trigger OnInit`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     app.scrollContent = { getElementRef: () => (({ nativeElement: { scrollTop: 10 } }) as ElementRef<HTMLElement>) } as MatSidenavContent;
-    app.ngOnInit();
     expect(app.scrollContent.getElementRef().nativeElement.scrollTop).toBe(10);
   });
 
@@ -133,12 +121,4 @@ describe('AppComponent', () => {
     expect(app.matches).toBeFalse();
   });
 
-  it(`Trigger OnInit`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    app.isBrowser = false;
-    app.scrollContent = { getElementRef: () => (({ nativeElement: { scrollTop: 10 } }) as ElementRef<HTMLElement>) } as MatSidenavContent;
-    app.ngOnInit();
-    expect(app.scrollContent.getElementRef().nativeElement.scrollTop).toBe(10);
-  });
 });

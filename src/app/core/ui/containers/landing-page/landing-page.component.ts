@@ -15,6 +15,8 @@ export class LandingPageComponent implements OnInit {
 
   public ngOnInit(): void {
     this.appService.title = `À Propos`;
+    this.appService.description = `Bonjour ! Moi, c'est Julien. Bienvenue sur mon portfolio, il va vous permettre dans savoir un peu plus sur moi
+        et mon parcours.`;
   }
 
 }
