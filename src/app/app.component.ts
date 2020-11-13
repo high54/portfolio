@@ -95,6 +95,18 @@ export class AppComponent implements OnDestroy, AfterViewInit {
     this.darkMode = value.theme;
     localStorage.setItem('darkMode', value.theme.toString());
   }
+  public canShare(): boolean {
+    return !!navigator.share;
+  }
+  public share(): void {
+    navigator.share({
+      url: 'https://julienbertacco.netlify.app/fr',
+      text: 'Tech lead front end',
+      title: 'C.V Julien Bertacco'
+    })
+      .then(() => console.log('Successful share'))
+      .catch((error) => console.log('Error sharing', error));
+  }
   private checkCookies(): void {
     if (!JSON.parse(localStorage.getItem('cookies'))) {
       const snackBarRef = this.snackBar.open(`Cette application utilise des cookies pour vous offrir une meilleure expérience. En utilisant cette application, vous acceptez leur utilisation.`, 'Voir les détails');

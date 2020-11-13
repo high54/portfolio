@@ -74,11 +74,18 @@
     </mat-sidenav>
 
     <mat-sidenav-content #scrollContent>
+      <div class="btn-fav">
+        <button *ngIf="canShare()" (click)="share()"mat-fab color="warn" aria-label="Partager mon C.V!">
+          <mat-icon>share</mat-icon>
+        </button>
+      </div>
       <div class="content">
         <app-ui-breadcrumb></app-ui-breadcrumb>
         <router-outlet></router-outlet>
+
         <app-ui-footer></app-ui-footer>
       </div>
+
     </mat-sidenav-content>
   </mat-sidenav-container>
 

@@ -9,6 +9,10 @@
 }
 #landing-photo {
     grid-area: photo;
+    img {
+        width: 150px;
+        height: 215px;
+    }
 }
 @media (min-width: 320px) and (max-width: 480px) {
     #landing-header {
