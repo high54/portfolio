@@ -96,7 +96,7 @@ export class AppComponent implements OnDestroy, AfterViewInit {
     localStorage.setItem('darkMode', value.theme.toString());
   }
   public canShare(): boolean {
-    return !!navigator.share;
+    return environment.production ? !!navigator.share : true;
   }
   public share(): void {
     navigator.share({
