@@ -5,19 +5,19 @@ import View from 'ol/View';
 import VectorLayer from 'ol/layer/Vector';
 import Style from 'ol/style/Style';
 import Icon from 'ol/style/Icon';
-import OSM from 'ol/source/OSM';
 import * as olProj from 'ol/proj';
 import TileLayer from 'ol/layer/Tile';
 import VectorSource from 'ol/source/Vector';
 import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
-import Polygon from 'ol/geom/Polygon';
 import TileJSON from 'ol/source/TileJSON';
 import XYZ from 'ol/source/XYZ';
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.scss']
+  styleUrls: [
+    './map.component.scss'
+  ]
 })
 export class MapComponent implements OnInit {
   public map;
