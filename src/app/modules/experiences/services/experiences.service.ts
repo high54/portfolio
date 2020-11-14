@@ -22,7 +22,7 @@ export class ExperiencesService {
     const experiences: Experience[] = [];
     const adbDev = new Experience(
       0,
-      'Full Stack Enginner',
+      'Full Stack Engineer',
       'ADB DEV - Cesson Sévigné (35)',
       `
       Analyse et conception d'applications Web / Mobile / Desktop et d'API (WebServices) dans le domaine de l'immobilier.
@@ -33,7 +33,7 @@ export class ExperiencesService {
     );
     const okelp = new Experience(
       1,
-      'Full Stack Enginner',
+      'Full Stack Engineer',
       'OKELP - Rennes (35)',
       `Analyse et conception d'une application pour aider les personnes en situation de handicap dans la vie de tous les jours (Projet Pause).`,
       new Date(2018, 2, 1),
