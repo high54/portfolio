@@ -100,8 +100,8 @@ export class AppComponent implements OnDestroy, AfterViewInit {
   }
   public share(): void {
     navigator.share({
-      url: 'https://julienbertacco.netlify.app/fr',
-      text: 'Tech lead front end',
+      url: 'https://julienbertacco.netlify.app/',
+      text: 'Julien Bertacc - Tech lead front end',
       title: 'C.V Julien Bertacco'
     })
       .then(() => console.log('Successful share'))
