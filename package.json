@@ -13,6 +13,7 @@
     "dev:ssr": "ng run portfolio:serve-ssr -o",
     "serve:ssr": "node dist/portfolio/server/main.js",
     "build:ssr": "ng build --prod && ng run portfolio:server:production",
+    "build:netlify": "ng build --prod --localize=false",
     "prerender": "ng run portfolio:prerender"
   },
   "private": true,
