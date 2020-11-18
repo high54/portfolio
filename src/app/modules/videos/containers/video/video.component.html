@@ -1,0 +1,33 @@
+<section id="video">
+    <aside id="playlist">
+        <mat-selection-list [multiple]="false" role="list">
+            <mat-list-option role="listitem" *ngFor="let vid of video.playlist; let i =index"
+                (click)="selectVideo(vid)">
+                {{ i+1 }} - {{ vid.title}}
+            </mat-list-option>
+        </mat-selection-list>
+
+    </aside>
+    <div id="video-display">
+        <article *ngIf="selectedVideo.type ==='video'">
+            <iframe width="100%" height="450" [src]="getUrl(selectedVideo.link)" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </article>
+
+        <article *ngIf="selectedVideo.type === 'stackblitz'">
+            <object style="width: 100%; height: 60vh; margin: 0; float: none; clear: both;"
+                [attr.data]="getUrl(selectedVideo.link)">
+            </object>
+        </article>
+
+
+        <!-- <object style="width:100%; height: 60vh; margin: auto; float: none; clear: both;"
+            [attr.data]="">
+            <param name="movie" [value]="getUrl(selectedVideo)">
+            <param name="allowFullScreen" value="true" />
+        </object> -->
+    </div>
+
+
+</section>

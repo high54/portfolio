@@ -61,6 +61,16 @@ const routes: Routes = [
         url: 'contact'
       }
     }
+  },
+  {
+    path: 'videos',
+    loadChildren: () => import('./modules/videos/videos.module').then((m) => m.VideosModule),
+    data: {
+      breadcrumb: {
+        label: 'Vidéos',
+        url: 'videos'
+      }
+    }
   }
 ];
 

@@ -45,30 +45,33 @@
           routerLinkActive="active" [routerLinkActiveOptions]="{exact:
           true}">À propos</a>
 
-        <a mat-list-item routerLink="experiences" i18n="site navigation|Link to the docs presentation page"
+        <a mat-list-item routerLink="experiences" i18n="site navigation|Link to experiences page"
           routerLinkActive="active" [routerLinkActiveOptions]="{exact:
           true}">Expériences</a>
 
-        <a mat-list-item routerLink="skills" i18n="site navigation|Link to the getting started page"
+        <a mat-list-item routerLink="skills" i18n="site navigation|Link to theskills page"
           routerLinkActive="active" [routerLinkActiveOptions]="{exact:
         true}">Compétences</a>
 
-        <a mat-list-item routerLink="projects" i18n="site navigation|Link to the progressive web app documentation page"
+        <a mat-list-item routerLink="projects" i18n="site navigation|Link to the projects page"
           routerLinkActive="active" [routerLinkActiveOptions]="{exact:
           true}">Projets</a>
 
         <a mat-list-item routerLink="degrees"
-          i18n="site navigation|Link to the server side rendering documentation page" routerLinkActive="active"
+          i18n="site navigation|Link to the degrees page" routerLinkActive="active"
           [routerLinkActiveOptions]="{exact:
           true}">Diplômes</a>
 
         <a mat-list-item routerLink="publications"
-          i18n="site navigation|Link to the server side rendering documentation page" routerLinkActive="active"
+          i18n="site navigation|Link to the publications page" routerLinkActive="active"
           [routerLinkActiveOptions]="{exact:false}">Publications</a>
 
+          <a mat-list-item routerLink="videos"
+          i18n="site navigation|Link to the videos page" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact:false}">Vidéos</a>
 
         <a mat-list-item routerLink="contact"
-          i18n="site navigation|Link to the server side rendering documentation page" routerLinkActive="active"
+          i18n="site navigation|Link to the contact page" routerLinkActive="active"
           [routerLinkActiveOptions]="{exact:false}">Contact</a>
       </mat-nav-list>
     </mat-sidenav>
@@ -82,7 +85,6 @@
       <div class="content">
         <app-ui-breadcrumb></app-ui-breadcrumb>
         <router-outlet></router-outlet>
-
         <app-ui-footer></app-ui-footer>
       </div>
 
