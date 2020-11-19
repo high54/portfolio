@@ -40,6 +40,7 @@
               "src/favicon.ico",
               "src/favicon-32x32.png",
               "src/robots.txt",
+              "src/sitemap.xml",
               "src/assets",
               "src/manifest.webmanifest"
             ],
