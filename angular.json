@@ -20,6 +20,12 @@
         }
       },
       "architect": {
+        "service-work": {
+          "builder": "additional-service-worker-builder:service-worker",
+          "options": {
+            "browserTarget": "portfolio:build:production"
+          }
+        },
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {

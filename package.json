@@ -14,7 +14,8 @@
     "serve:ssr": "node dist/portfolio/server/main.js",
     "build:ssr": "ng build --prod && ng run portfolio:server:production",
     "build:netlify": "ng build --prod --localize=false",
-    "prerender": "ng run portfolio:prerender"
+    "prerender": "ng run portfolio:prerender",
+    "build:prerender": "ng run portfolio:prerender && ng run portfolio:service-work"
   },
   "private": true,
   "dependencies": {
@@ -50,6 +51,7 @@
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.19.3",
+    "additional-service-worker-builder": "0.0.2",
     "codelyzer": "^6.0.0-next.1",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~5.0.0",
