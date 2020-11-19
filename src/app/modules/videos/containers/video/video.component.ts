@@ -21,16 +21,14 @@ export class VideoComponent implements OnInit {
     private videosService: VideosService
   ) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.video = this.videosService.videos[0];
     this.selectedVideo = this.video.playlist[0];
   }
   public selectVideo(video): void {
-    this.selectedVideo = video;
-  }
-
-  get im(): boolean {
-    return true;
+    if (this.selectedVideo.id !== video.id) {
+      this.selectedVideo = video;
+    }
   }
   public getUrl(url: string): SafeResourceUrl {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
