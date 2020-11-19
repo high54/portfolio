@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 // Openlayers
 import Map from 'ol/Map';
 import View from 'ol/View';
@@ -20,72 +21,80 @@ import XYZ from 'ol/source/XYZ';
   ]
 })
 export class MapComponent implements OnInit {
+  public isBrowser = false;
   public map;
-  constructor() { }
+  constructor(
+    @Inject(PLATFORM_ID) private platformId,
+  ) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+  }
 
   public ngOnInit(): void {
-    const iconFeature = new Feature({
-      geometry: new Point(olProj.fromLonLat([-1.665990, 48.106660])),
-    });
-    const iconStyle = new Style({
-      image: new Icon({
-        anchor: [128, 256],
-        anchorXUnits: 'pixels',
-        anchorYUnits: 'pixels',
-        src: 'assets/map/marker.png',
-        size: [256, 256],
-        scale: 0.2
-      }),
-    });
-    iconFeature.setStyle(iconStyle);
+    if (this.isBrowser) {
 
-    const vectorSource = new VectorSource({
-      features: [iconFeature],
-    });
-
-    const vectorLayer = new VectorLayer({
-      source: vectorSource,
-    });
-    const rasterLayer = new TileLayer({
-      source: new TileJSON({
-        url: 'https://a.tiles.mapbox.com/v3/aj.1x1-degrees.json?secure=1',
-        crossOrigin: '',
-      }),
-    });
-    this.map = new Map({
-      target: 'map',
-      layers: [
-        rasterLayer,
-        new TileLayer({
-          source: new XYZ({
-            attributions:
-              'Tiles © <a href="https://services.arcgisonline.com/ArcGIS/' +
-              'rest/services/World_Topo_Map/MapServer">ArcGIS</a>',
-            url:
-              'https://server.arcgisonline.com/ArcGIS/rest/services/' +
-              'World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
-          }),
+      const iconFeature = new Feature({
+        geometry: new Point(olProj.fromLonLat([-1.665990, 48.106660])),
+      });
+      const iconStyle = new Style({
+        image: new Icon({
+          anchor: [128, 256],
+          anchorXUnits: 'pixels',
+          anchorYUnits: 'pixels',
+          src: 'assets/map/marker.png',
+          size: [256, 256],
+          scale: 0.2
         }),
-        vectorLayer
+      });
+      iconFeature.setStyle(iconStyle);
 
-      ],
-      view: new View({
-        center: olProj.fromLonLat([-1.665990, 48.106660]),
-        zoom: 4
-      })
-    });
+      const vectorSource = new VectorSource({
+        features: [iconFeature],
+      });
+
+      const vectorLayer = new VectorLayer({
+        source: vectorSource,
+      });
+      const rasterLayer = new TileLayer({
+        source: new TileJSON({
+          url: 'https://a.tiles.mapbox.com/v3/aj.1x1-degrees.json?secure=1',
+          crossOrigin: '',
+        }),
+      });
+      this.map = new Map({
+        target: 'map',
+        layers: [
+          rasterLayer,
+          new TileLayer({
+            source: new XYZ({
+              attributions:
+                'Tiles © <a href="https://services.arcgisonline.com/ArcGIS/' +
+                'rest/services/World_Topo_Map/MapServer">ArcGIS</a>',
+              url:
+                'https://server.arcgisonline.com/ArcGIS/rest/services/' +
+                'World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+            }),
+          }),
+          vectorLayer
+
+        ],
+        view: new View({
+          center: olProj.fromLonLat([-1.665990, 48.106660]),
+          zoom: 4
+        })
+      });
 
 
-    const layer = new VectorLayer({
-      source: new VectorSource({
-        features: [
-          new Feature({
-            geometry: new Point(olProj.fromLonLat([-1.665990, 48.106660]))
-          })
-        ]
-      })
-    });
-    this.map.addLayer(layer);
+      const layer = new VectorLayer({
+        source: new VectorSource({
+          features: [
+            new Feature({
+              geometry: new Point(olProj.fromLonLat([-1.665990, 48.106660]))
+            })
+          ]
+        })
+      });
+      this.map.addLayer(layer);
+    }
   }
 
 }

@@ -91,29 +91,36 @@ export class AppComponent implements OnDestroy, AfterViewInit {
     }
   }
   public changeTheme(): void {
-    const { value } = this.themeForm;
-    this.darkMode = value.theme;
-    localStorage.setItem('darkMode', value.theme.toString());
+    if (this.isBrowser) {
+      const { value } = this.themeForm;
+      this.darkMode = value.theme;
+      localStorage.setItem('darkMode', value.theme.toString());
+    }
   }
   public canShare(): boolean {
-    return environment.production ? !!navigator.share : true;
+    return environment.production && this.isBrowser ? !!navigator.share : true;
   }
   public share(): void {
-    navigator.share({
-      url: 'https://julienbertacco.netlify.app/',
-      text: 'Julien Bertacc - Tech lead front end',
-      title: 'C.V Julien Bertacco'
-    })
-      .then(() => console.log('Successful share'))
-      .catch((error) => console.log('Error sharing', error));
+    if (this.isBrowser) {
+      navigator.share({
+        url: 'https://julienbertacco.netlify.app/',
+        text: 'Julien Bertacc - Tech lead front end',
+        title: 'C.V Julien Bertacco'
+      })
+        .then(() => console.log('Successful share'))
+        .catch((error) => console.log('Error sharing', error));
+    }
+
   }
   private checkCookies(): void {
-    if (!JSON.parse(localStorage.getItem('cookies'))) {
-      const snackBarRef = this.snackBar.open(`Cette application utilise des cookies pour vous offrir une meilleure expérience. En utilisant cette application, vous acceptez leur utilisation.`, 'Voir les détails');
-      localStorage.setItem('cookies', 'true');
-      snackBarRef.onAction().subscribe(() => {
-        this.router.navigateByUrl('cookies');
-      });
+    if (this.isBrowser) {
+      if (!JSON.parse(localStorage.getItem('cookies'))) {
+        const snackBarRef = this.snackBar.open(`Cette application utilise des cookies pour vous offrir une meilleure expérience. En utilisant cette application, vous acceptez leur utilisation.`, 'Voir les détails');
+        localStorage.setItem('cookies', 'true');
+        snackBarRef.onAction().subscribe(() => {
+          this.router.navigateByUrl('cookies');
+        });
+      }
     }
   }
   private loadTheme(): void {

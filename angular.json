@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "localize": true,
+            "localize": false,
             "outputPath": "dist/portfolio/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -202,7 +202,15 @@
             "browserTarget": "portfolio:build:production",
             "serverTarget": "portfolio:server:production",
             "routes": [
-              "/"
+              "/",
+              "/experiences",
+              "/skills",
+              "/projects",
+              "/degrees",
+              "/publications",
+              "/contact",
+              "/videos",
+              "/videos/creer-une-to-do-list-avec-angular"
             ]
           },
           "configurations": {

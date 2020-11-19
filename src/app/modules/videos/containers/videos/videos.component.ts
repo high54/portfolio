@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 // Services
@@ -10,11 +11,15 @@ import { VideosService } from '../../services';
   styleUrls: ['./videos.component.scss']
 })
 export class VideosComponent implements OnInit {
+  public isBrowser = false;
 
   constructor(
+    @Inject(PLATFORM_ID) private platformId,
     private videosService: VideosService,
     private router: Router
-  ) { }
+  ) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+  }
   get videos(): any[] {
     return this.videosService.videos;
   }
@@ -25,15 +30,17 @@ export class VideosComponent implements OnInit {
   }
 
   public canShare(): boolean {
-    return environment.production ? !!navigator.share : true;
+    return environment.production && this.isBrowser ? !!navigator.share : true;
   }
   public share(): void {
-    navigator.share({
-      url: 'https://julienbertacco.netlify.app/videos/creer-une-to-do-list-avec-angular',
-      text: 'Créer une To Do List avec Angular',
-      title: 'Tutoriel vidéo - Créer une To Do List avec Angular'
-    })
-      .then(() => console.log('Successful share'))
-      .catch((error) => console.log('Error sharing', error));
+    if (this.isBrowser) {
+      navigator.share({
+        url: 'https://julienbertacco.netlify.app/videos/creer-une-to-do-list-avec-angular',
+        text: 'Créer une To Do List avec Angular',
+        title: 'Tutoriel vidéo - Créer une To Do List avec Angular'
+      })
+        .then(() => console.log('Successful share'))
+        .catch((error) => console.log('Error sharing', error));
+    }
   }
 }
