@@ -104,7 +104,7 @@ export class AppComponent implements OnDestroy, AfterViewInit {
     if (this.isBrowser) {
       navigator.share({
         url: 'https://julienbertacco.netlify.app/',
-        text: 'Julien Bertacc - Tech lead front end',
+        text: 'Julien Bertacco - Tech lead front end',
         title: 'C.V Julien Bertacco'
       })
         .then(() => console.log('Successful share'))

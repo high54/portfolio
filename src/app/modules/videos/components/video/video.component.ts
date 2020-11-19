@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-videox',
-  templateUrl: './video.component.html',
-  styleUrls: ['./video.component.scss']
+  templateUrl: './video.component.html'
 })
 export class VideoComponent implements OnInit {
 

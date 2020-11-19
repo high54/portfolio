@@ -7,8 +7,7 @@ import { VideosService } from '../../services';
 
 @Component({
   selector: 'app-videos',
-  templateUrl: './videos.component.html',
-  styleUrls: ['./videos.component.scss']
+  templateUrl: './videos.component.html'
 })
 export class VideosComponent implements OnInit {
   public isBrowser = false;
