@@ -18,6 +18,7 @@ export class VideosService {
     this.videos.push({
       id: 0,
       title: `Créer une To Do list avec Angular`,
+      url: `creer-une-to-do-list-avec-angular`,
       subtitle: ``,
       description: `Création d'une application Todo List sous Angular. Code complet disponible sur GitHub : https://github.com/high54/ngx-todo-list`,
       img: 'assets/miniatures/todo.png',
@@ -72,7 +73,7 @@ export class VideosService {
           type: 'video'
         },
         {
-          id:7,
+          id: 7,
           title: 'Live exemple',
           link: 'https://stackblitz.com/edit/angular-ivy-ejxw2h?devtoolsheight=33&embed=1&file=src/app/todos/containers/todos/todos.component.ts',
           type: 'stackblitz'

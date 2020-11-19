@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // Services
 import { VideosService } from '../../services';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 
 @Component({
@@ -14,7 +14,7 @@ import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 })
 export class VideoComponent implements OnInit {
   public video;
-  public selectedVideo:any;
+  public selectedVideo: any;
 
   constructor(
     public sanitizer: DomSanitizer,
@@ -25,14 +25,14 @@ export class VideoComponent implements OnInit {
     this.video = this.videosService.videos[0];
     this.selectedVideo = this.video.playlist[0];
   }
-  public selectVideo(video){
+  public selectVideo(video): void {
     this.selectedVideo = video;
   }
 
   get im(): boolean {
     return true;
   }
-  getUrl(url: string) {
+  public getUrl(url: string): SafeResourceUrl {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 // Services
 import { VideosService } from '../../services';
 
@@ -17,9 +18,22 @@ export class VideosComponent implements OnInit {
   get videos(): any[] {
     return this.videosService.videos;
   }
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
   public redirect(video: any): void {
-    this.router.navigateByUrl(`videos/${video.id}`);
+    this.router.navigateByUrl(`videos/${video.url}`);
+  }
+
+  public canShare(): boolean {
+    return environment.production ? !!navigator.share : true;
+  }
+  public share(): void {
+    navigator.share({
+      url: 'https://julienbertacco.netlify.app/videos/creer-une-to-do-list-avec-angular',
+      text: 'Créer une To Do List avec Angular',
+      title: 'Tutoriel vidéo - Créer une To Do List avec Angular'
+    })
+      .then(() => console.log('Successful share'))
+      .catch((error) => console.log('Error sharing', error));
   }
 }
