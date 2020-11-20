@@ -15,6 +15,12 @@ export class ZmsIonicComponent implements OnInit {
 
   public ngOnInit(): void {
     this.appService.title = 'Tutoriel ZMS et Ionic 3';
+    this.appService.description = `
+    Dans le cadre du stage de fin d'année de BAC+2 j'ai eu pour mission de rédiger un tutoriel sur
+    l'utilisation
+    du langage de programmation ZMS et l'utilisateur des services de ZetaPush. Le tutoriel présente comment
+    utiliser les services en réalisant une application mobile avec Ionic.
+    `;
   }
 
 }

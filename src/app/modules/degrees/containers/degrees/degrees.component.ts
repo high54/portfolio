@@ -19,6 +19,9 @@ export class DegreesComponent implements OnInit {
 
   public ngOnInit(): void {
     this.appService.title = `Diplômes et certifications`;
+    this.appService.description = `
+    Les diplômes et certifications présent ici ne reflète qu'une partie du travail que j'ai effectué pour améliorer
+        mes compétences dans le domaine de l'informatique. Que ce soit au niveau fonctionnel ou métier.`;
   }
 
   get degrees(): Degree[] {

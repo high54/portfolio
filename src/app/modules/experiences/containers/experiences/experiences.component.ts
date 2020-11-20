@@ -19,6 +19,7 @@ export class ExperiencesComponent implements OnInit {
 
   public ngOnInit(): void {
     this.appService.title = 'Expériences professionnelle';
+    this.appService.description = `C'est en forgeant qu'on devient forgeron.`;
   }
 
   get experiences(): Experience[] {

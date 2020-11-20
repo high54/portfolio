@@ -18,6 +18,11 @@ export class ProjectsComponent implements OnInit {
 
   public ngOnInit(): void {
     this.appService.title = 'Projets personnel';
+    let description = 'Quelques projets personnel réalisé sur mon temps libre :';
+    for (const project of this.projects) {
+      description += project.title;
+    }
+    this.appService.description = description;
   }
 
   get projects(): Project[] {

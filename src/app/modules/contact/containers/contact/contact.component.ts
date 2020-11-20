@@ -29,6 +29,9 @@ export class ContactComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.appService.title = 'Me contacter';
+    this.appService.description = `
+    Vous pouvez directement m'envoyer un mail depuis cette page !
+    `;
   }
   public ngOnDestroy(): void {
     if (this.sendEmailSub) {

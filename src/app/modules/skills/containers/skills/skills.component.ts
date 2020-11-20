@@ -23,7 +23,12 @@ export class SkillsComponent implements OnInit, AfterViewInit, OnDestroy {
   ) { }
   public ngOnInit(): void {
     this.skills = this.skillsService.skills.slice();
+    let description = 'Compétences : ';
+    for (const skill of this.skills) {
+      description += skill.title + ', ';
+    }
     this.appService.title = 'Compétences';
+    this.appService.description = description;
   }
   public ngOnDestroy(): void {
     if (this.filterSubscription) {

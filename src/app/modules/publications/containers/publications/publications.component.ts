@@ -15,6 +15,7 @@ export class PublicationsComponent implements OnInit {
 
   public ngOnInit(): void {
     this.appService.title = 'Publications';
+    this.appService.description = `Liste de mes publications`;
   }
 
 }
