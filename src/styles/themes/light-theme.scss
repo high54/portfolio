@@ -1,0 +1,10 @@
+@import './colors.scss';
+@import '~@angular/material/theming';
+
+
+$light-theme:   mat-light-theme((
+color: (
+primary: $primary,
+accent: $accent
+)
+));

@@ -126,7 +126,6 @@ export class AppComponent implements OnDestroy, AfterViewInit {
   private loadTheme(): void {
     if (this.isBrowser) {
       const darkMode = localStorage.getItem('darkMode');
-      console.log(darkMode);
       if (darkMode !== null) {
         this.darkMode = darkMode === 'true';
         this.themeForm.patchValue({
@@ -153,6 +152,7 @@ export class AppComponent implements OnDestroy, AfterViewInit {
     });
   }
   private checkForUpdate(): void {
+    console.log(this.isBrowser, this.updates.isEnabled);
     if (this.updates.isEnabled && this.isBrowser) {
       const appIsStable$ = this.appRef.isStable.pipe(first(isStable => isStable === true));
       const everySixHours$ = interval(6 * 60 * 60 * 1000);

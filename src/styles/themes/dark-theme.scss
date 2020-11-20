@@ -1,0 +1,12 @@
+@import './colors.scss';
+@import '~@angular/material/theming';
+
+// Define an alternate dark theme.
+$warn:    mat-palette($mat-deep-orange);
+$dark-theme:   mat-dark-theme((
+color: (
+primary: $primary,
+accent: $accent,
+warn: $warn
+)
+));
