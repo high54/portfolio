@@ -35,7 +35,7 @@ export class ExperiencesService {
       1,
       'Full Stack Engineer',
       'OKELP - Rennes (35)',
-      `Analyse et conception d'une application pour aider les personnes en situation de handicap dans la vie de tous les jours (Projet Pause).`,
+      `Analyse et conception d'une application pour aider les personnes en situation de handicap dans la vie de tous les jours (Projet en Pause).`,
       new Date(2018, 2, 1),
       new Date(2020, 9, 1)
     );
