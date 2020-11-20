@@ -10,7 +10,13 @@ const routes: Routes = [
     },
     {
         path: ':id',
-        component: fromContainers.VideoComponent
+        component: fromContainers.VideoComponent,
+        data: {
+            breadcrumb: {
+                label: '',
+                url: ''
+            }
+        }
     }
 ];
 

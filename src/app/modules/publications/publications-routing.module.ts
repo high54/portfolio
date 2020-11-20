@@ -23,7 +23,7 @@ const routes: Routes = [
         component: fromContainers.NgxInputTimeDirectiveComponent,
         data: {
             breadcrumb: {
-                label: 'Angular. Custom Input Time Directive',
+                label: 'Angular - Custom Input Time Directive',
                 url: 'ngx-input-time-directive'
             }
         }
