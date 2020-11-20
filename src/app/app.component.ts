@@ -159,6 +159,7 @@ export class AppComponent implements OnDestroy, AfterViewInit {
       const everySixHoursOnceAppIsStable$ = concat(appIsStable$, everySixHours$);
       everySixHoursOnceAppIsStable$.subscribe(() => this.updates.checkForUpdate());
       this.updates.available.subscribe(event => {
+        console.log(event)
         this.updates.activateUpdate().then(() => {
           const dialogRef = this.dialog.open(InstallUpdateComponent, {
             width: '250px',
