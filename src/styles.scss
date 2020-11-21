@@ -18,6 +18,14 @@ body { margin: 0; font-family:  'Roboto', sans-serif; overscroll-behavior-y: con
 body:not(.dark-theme) {
     transition: all 1s linear;
 }
+.visible-hidden {
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
 
 .dark-theme {
     

@@ -110,7 +110,6 @@ export class AppComponent implements OnDestroy, AfterViewInit {
         .then(() => console.log('Successful share'))
         .catch((error) => console.log('Error sharing', error));
     }
-
   }
   private checkCookies(): void {
     if (this.isBrowser) {
@@ -152,14 +151,12 @@ export class AppComponent implements OnDestroy, AfterViewInit {
     });
   }
   private checkForUpdate(): void {
-    console.log(this.isBrowser, this.updates.isEnabled);
     if (this.updates.isEnabled && this.isBrowser) {
       const appIsStable$ = this.appRef.isStable.pipe(first(isStable => isStable === true));
       const everySixHours$ = interval(6 * 60 * 60 * 1000);
       const everySixHoursOnceAppIsStable$ = concat(appIsStable$, everySixHours$);
       everySixHoursOnceAppIsStable$.subscribe(() => this.updates.checkForUpdate());
       this.updates.available.subscribe(event => {
-        console.log(event)
         this.updates.activateUpdate().then(() => {
           const dialogRef = this.dialog.open(InstallUpdateComponent, {
             width: '250px',
