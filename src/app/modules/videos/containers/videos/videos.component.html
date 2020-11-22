@@ -12,7 +12,7 @@
             </p>
         </mat-card-content>
         <mat-card-actions>
-            <button mat-button *ngIf="canShare()" (click)="share()">Partager</button>
+            <button mat-button *ngIf="canShare()" (click)="share($event,video)">Partager</button>
         </mat-card-actions>
     </mat-card>
 

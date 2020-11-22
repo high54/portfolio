@@ -33,12 +33,13 @@ export class VideosComponent implements OnInit {
   public canShare(): boolean {
     return environment.production && this.isBrowser ? !!navigator.share : true;
   }
-  public share(): void {
+  public share(event, video): void {
     if (this.isBrowser) {
+      event.stopPropagation();
       navigator.share({
-        url: 'https://julienbertacco.netlify.app/videos/creer-une-to-do-list-avec-angular',
-        text: 'Créer une To Do List avec Angular',
-        title: 'Tutoriel vidéo - Créer une To Do List avec Angular'
+        url: `https://julienbertacco.netlify.app/videos/${video.url}`,
+        text: video.description,
+        title: `Tutoriel vidéo - ${video.title}`
       })
         .then(() => console.log('Successful share'))
         .catch((error) => console.log('Error sharing', error));
