@@ -80,5 +80,23 @@ export class VideosService {
         }
       ]
     });
+
+    this.videos.push({
+      id: 1,
+      title: `Angular en détails`,
+      url: `angular-en-details`,
+      subtitle: ``,
+      description: `Dans une série de vidéos, j'entre dans les détails du fonctionnement des APIs et fonctionnalités d'Angular. Code complet disponible sur GitHub : https://github.com/high54/angular-en-details`,
+      img: 'assets/miniatures/en-details.png',
+      playlist: [
+        {
+          id: 0,
+          title: `Décorateur @Input()`,
+          link: 'https://www.youtube.com/embed/Yd77WFSQCyQ',
+          duration: '5:40',
+          type: 'video'
+        }
+      ]
+    });
   }
 }

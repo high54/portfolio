@@ -91,11 +91,9 @@ export class AppComponent implements OnDestroy, AfterViewInit {
     }
   }
   public changeTheme(): void {
-    if (this.isBrowser) {
-      const { value } = this.themeForm;
-      this.darkMode = value.theme;
-      localStorage.setItem('darkMode', value.theme.toString());
-    }
+    const { value } = this.themeForm;
+    this.darkMode = value.theme;
+    localStorage.setItem('darkMode', JSON.stringify(value.theme));
   }
   public canShare(): boolean {
     return environment.production && this.isBrowser ? !!navigator.share : true;
@@ -124,13 +122,11 @@ export class AppComponent implements OnDestroy, AfterViewInit {
   }
   private loadTheme(): void {
     if (this.isBrowser) {
-      const darkMode = localStorage.getItem('darkMode');
-      if (darkMode !== null) {
-        this.darkMode = darkMode === 'true';
-        this.themeForm.patchValue({
-          theme: darkMode === 'true'
-        });
-      }
+      const darkMode = JSON.parse(localStorage.getItem('darkMode')) || false;
+      this.darkMode = darkMode;
+      this.themeForm.patchValue({
+        theme: darkMode
+      });
     }
   }
   private loader(): void {

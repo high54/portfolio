@@ -1,6 +1,7 @@
 import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { isPlatformBrowser } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 // Services
 import { VideosService } from '../../services';
 import { AppService } from 'src/app/app.service';
@@ -18,14 +19,18 @@ export class VideoComponent implements OnInit {
     @Inject(PLATFORM_ID) private platformId,
     public sanitizer: DomSanitizer,
     private videosService: VideosService,
-    private appService: AppService
+    private appService: AppService,
+    private route: ActivatedRoute
   ) { }
 
   public ngOnInit(): void {
-    this.video = this.videosService.videos[0];
-    this.selectedVideo = this.video.playlist[0];
-    this.appService.title = this.video.title;
-    this.appService.description = this.video.description;
+    this.route.params.subscribe((params) => {
+      this.video = this.videosService.videos.find((video) => video.url === params.id);
+      this.selectedVideo = this.video.playlist[0];
+      this.appService.title = this.video.title;
+      this.appService.description = this.video.description;
+    });
+
   }
   public selectVideo(video): void {
     if (this.selectedVideo.id !== video.id) {
