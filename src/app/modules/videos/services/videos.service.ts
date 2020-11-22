@@ -92,7 +92,7 @@ export class VideosService {
         {
           id: 0,
           title: `Décorateur @Input()`,
-          link: 'https://www.youtube.com/embed/Yd77WFSQCyQ',
+          link: 'https://www.youtube.com/embed/r6DAENg7Tb0',
           duration: '5:40',
           type: 'video'
         }
