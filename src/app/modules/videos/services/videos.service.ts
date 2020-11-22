@@ -95,6 +95,13 @@ export class VideosService {
           link: 'https://www.youtube.com/embed/r6DAENg7Tb0',
           duration: '5:40',
           type: 'video'
+        },
+        {
+          id: 0,
+          title: `Décorateur @Ouput()`,
+          link: 'https://www.youtube.com/embed/5Kf9ZOPVgOI',
+          duration: '5:38',
+          type: 'video'
         }
       ]
     });
