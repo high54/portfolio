@@ -83,11 +83,11 @@ export class VideosService {
 
     this.videos.push({
       id: 1,
-      title: `Angular en détails`,
-      url: `angular-en-details`,
+      title: `Angular en détail`,
+      url: `angular-en-detail`,
       subtitle: ``,
-      description: `Dans une série de vidéos, j'entre dans les détails du fonctionnement des APIs et fonctionnalités d'Angular. Code complet disponible sur GitHub : https://github.com/high54/angular-en-details`,
-      img: 'assets/miniatures/en-details.png',
+      description: `Dans une série de vidéos, j'entre dans les détails du fonctionnement des APIs et fonctionnalités d'Angular. Code complet disponible sur GitHub : https://github.com/high54/angular-en-detail`,
+      img: 'assets/miniatures/en-detail.png',
       playlist: [
         {
           id: 0,
