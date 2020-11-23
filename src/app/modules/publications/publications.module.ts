@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 // Routes Module
 import { PublicationsRoutingModule } from './publications-routing.module';
 // Material Modules
@@ -15,7 +16,7 @@ import { MarkdownModule } from 'ngx-markdown';
         CommonModule,
         PublicationsRoutingModule,
         PublicationsMaterialModule,
-        MarkdownModule
+        MarkdownModule.forRoot({ loader: HttpClient })
     ],
     declarations: [
         ...fromContainers.containers,
