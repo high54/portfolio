@@ -1,8 +1,8 @@
 <section id="video">
     <aside id="playlist">
         <mat-selection-list [multiple]="false" role="list">
-            <mat-list-option role="listitem" *ngFor="let vid of video.playlist; let i =index"
-                (click)="selectVideo(vid)">
+            <mat-list-option role="listitem" [selected]="vid.id === selectedVideo.id"
+                *ngFor="let vid of video.playlist; let i =index" (click)="selectVideo(vid)">
                 {{ i+1 }} - {{ vid.title}}
             </mat-list-option>
         </mat-selection-list>
