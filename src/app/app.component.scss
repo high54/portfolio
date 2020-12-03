@@ -39,6 +39,9 @@ h1.app-name {
 
 .content {
   padding: 1rem;
+  min-height: 80vh;
+  width: 80%;
+  margin: auto;
 }
 .sidenav-container {
   /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This

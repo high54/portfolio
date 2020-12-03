@@ -20,7 +20,8 @@ import {
   NavigationEnd,
   NavigationError,
   NavigationStart,
-  Router
+  Router,
+  RouterOutlet
 } from '@angular/router';
 // Services
 import { AppService } from './app.service';
@@ -32,11 +33,13 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 // Components
 import { InstallUpdateComponent } from './core/ui/components';
+import { slideInAnimations } from './router-animation';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [slideInAnimations]
 })
 export class AppComponent implements OnDestroy, AfterViewInit {
   @ViewChild('scrollContent', { static: true }) public scrollContent !: MatSidenavContent;
@@ -88,6 +91,11 @@ export class AppComponent implements OnDestroy, AfterViewInit {
   public ngOnDestroy(): void {
     if (this.isBrowser) {
       this.mobileQuery.removeEventListener('change', this.mobileQueryListener);
+    }
+  }
+  public animation(outlet: RouterOutlet): any {
+    if (this.isBrowser) {
+      return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
     }
   }
   public changeTheme(): void {

@@ -9,7 +9,8 @@ const routes: Routes = [
       breadcrumb: {
         label: 'Expérience professionnelle',
         url: '/'
-      }
+      },
+      animation: 'experiences'
     }
   },
   {
@@ -19,7 +20,8 @@ const routes: Routes = [
       breadcrumb: {
         label: 'Compétences',
         url: 'skills'
-      }
+      },
+      animation: 'skills'
     }
   },
   {
@@ -29,7 +31,8 @@ const routes: Routes = [
       breadcrumb: {
         label: 'Projets personnel',
         url: 'projects'
-      }
+      },
+      animation: 'projects'
     }
   },
   {
@@ -39,7 +42,8 @@ const routes: Routes = [
       breadcrumb: {
         label: 'Diplômes et certifications',
         url: 'degrees'
-      }
+      },
+      animation: 'degrees'
     }
   },
   {
@@ -49,7 +53,8 @@ const routes: Routes = [
       breadcrumb: {
         label: 'Publications',
         url: 'publications'
-      }
+      },
+      animation: 'publications'
     }
   },
   {
@@ -59,7 +64,8 @@ const routes: Routes = [
       breadcrumb: {
         label: 'Me Contacter',
         url: 'contact'
-      }
+      },
+      animation: 'contact'
     }
   },
   {
@@ -69,7 +75,8 @@ const routes: Routes = [
       breadcrumb: {
         label: 'Vidéos',
         url: 'videos'
-      }
+      },
+      animation: 'videos'
     }
   }
 ];

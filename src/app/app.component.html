@@ -82,11 +82,13 @@
           <mat-icon>share</mat-icon>
         </button>
       </div>
-      <div class="content">
+      <div class="content" >
         <app-ui-breadcrumb></app-ui-breadcrumb>
-        <router-outlet></router-outlet>
-        <app-ui-footer></app-ui-footer>
+        <div [@routeAnimations]="animation(outletRef)">
+          <router-outlet #outletRef="outlet"></router-outlet>
+        </div>
       </div>
+      <app-ui-footer></app-ui-footer>
 
     </mat-sidenav-content>
   </mat-sidenav-container>
