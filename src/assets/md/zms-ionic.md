@@ -2,7 +2,7 @@
 
 # mobile de gestion de collection
 
-## Initiation aux bases de données avec AMS
+## Initiation aux bases de données avec ZMS
 
 ## Par Julien Bertacco
 
