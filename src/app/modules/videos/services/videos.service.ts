@@ -105,5 +105,22 @@ export class VideosService {
         }
       ]
     });
+    this.videos.push({
+      id: 2,
+      title: `Angular - Feature Module`,
+      url: `angular-feature-module`,
+      subtitle: ``,
+      description: `Explication du principe des features module sous Angular, avec un design évolutif et maintenable.`,
+      img: 'assets/miniatures/feature-module.png',
+      playlist: [
+        {
+          id: 0,
+          title: `Feature module`,
+          link: 'https://www.youtube.com/embed/UINzl2z-WwM',
+          duration: '5:28',
+          type: 'video'
+        }
+      ]
+    });
   }
 }
