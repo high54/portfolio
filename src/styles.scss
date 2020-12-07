@@ -124,7 +124,7 @@ footer {
         list-style: none;
         display: table-cell;
         width: 100%;
-        padding-left: 1rem;
+        padding: 0;
         margin: 0;
         margin-top: 0.5rem;
         box-sizing: border-box;
@@ -191,7 +191,7 @@ footer {
         margin: auto;
     }
     .content-flex {
-        width: 80%;
+        width: 100%;
         margin: auto;
         display: flex;
         flex-wrap: wrap;

@@ -20,15 +20,6 @@ La directive va-t-être assez simple :
 - Ajouter deux points superposés `:` après les deux premiers chiffres
 - Retourner une erreur et bloquer la validation du formulaire si le champ est mal formaté.
 
-## Démonstration et code source
-
-{% youtube Ghats6xBukE %}
-
-{% stackblitz angular-ivy-utfjch view=preview %}
-
-{% github high54/angular-input-time-directive no-readme %}
-
-
 ## Le sélecteur
 
 Une directive fonctionne comme un `component` ou un `service`. Nous disposons d'un décorateur pour la créer :
