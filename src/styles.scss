@@ -60,12 +60,12 @@ p {
     text-align: justify;
 }
 .footer-contact {
-    color: mat-color($primary);
+    fill: mat-color($primary);
     em {
         font-size: 2rem;
     }
     &:hover {
-        color: mat-color($accent);
+        fill: mat-color($accent);
         em {
             font-size: 2rem;
         }
