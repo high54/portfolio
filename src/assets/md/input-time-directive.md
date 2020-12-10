@@ -2,8 +2,6 @@
 
 Je développe actuellement un Agenda de type Google Agenda. Proposant presque toutes les fonctionnalités du dit agenda.
 
-Lorsque j'ai voulus ajouter le support des heures à l'ajout de rendez-vous je me suis retrouvé face au problème du champ de type heure et minute.
-
 Ne disposant pas d'un champ de type heure / minute adapté à mes besoins, j'ai décidé de mettre en place une directive sous Angular afin de palier à ce problème.
 
 Cette directive a pour but de formater un champ de type texte au format : `HH:MM` et de vérifier la saisie utilisateur.
