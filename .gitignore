@@ -52,3 +52,8 @@ Thumbs.db
 /doc
 debug.log
 .vscode/settings.json
+
+#Capacitor
+android
+ios
+release

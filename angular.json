@@ -13,12 +13,7 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
-      "i18n": {
-        "sourceLocale": "en",
-        "locales": {
-          "fr": "src/locale/messages.fr.xlf"
-        }
-      },
+ 
       "architect": {
         "service-work": {
           "builder": "additional-service-worker-builder:service-worker",

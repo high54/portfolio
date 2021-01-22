@@ -34,6 +34,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 // Components
 import { InstallUpdateComponent } from './core/ui/components';
 import { slideInAnimations } from './router-animation';
+import { Plugins } from '@capacitor/core';
 
 @Component({
   selector: 'app-root',
