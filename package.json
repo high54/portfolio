@@ -12,7 +12,7 @@
     "sonar": "sonar-scanner",
     "dev:ssr": "ng run portfolio:serve-ssr -o",
     "serve:ssr": "node dist/portfolio/server/main.js",
-    "build:ssr": "ng build --prod && ng run portfolio:server:production",
+    "build:ssr": "ng build --prod --localize=false && ng run portfolio:server:production",
     "build:netlify": "ng build --prod --localize=false",
     "prerender": "ng run portfolio:prerender",
     "build:prerender": "ng run portfolio:prerender && ng run portfolio:service-work"
