@@ -1,4 +1,4 @@
-import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, Inject, InjectionToken } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
@@ -14,7 +14,7 @@ import { Playlist } from '../../models/playlist.interface';
 export class VideosComponent implements OnInit {
   public isBrowser = false;
   constructor(
-    @Inject(PLATFORM_ID) private platformId: object,
+    @Inject(PLATFORM_ID) private platformId: InjectionToken<object>,
     private videosService: VideosService,
     private router: Router,
     private appService: AppService

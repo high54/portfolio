@@ -139,6 +139,14 @@ export class SkillsService {
       À vous de me le dire ! N'hésitez pas à m'envoyer un message depuis la section Contact afin de me dire vous avez apprécier votre expérience sur cette application !
       `
     );
+    const expressjs = new Skill(
+      15,
+      'ExpressJs',
+      4,
+      `
+      J'ai eu pour mission d'améliorer les performances d'une API Gateway sous Express pour une filliale basé à Londre d'un grand compte dans le domaine des jeux/loterie.
+      `
+    );
     skills.push(angular);
     skills.push(typeScript);
     skills.push(javaScript);
@@ -152,6 +160,7 @@ export class SkillsService {
     skills.push(english);
     skills.push(gitlab);
     skills.push(ssr);
+    skills.push(expressjs);
     skills.push(nodeJs);
     skills.push(ux);
     this.skills = skills.sort((a, b) => b.level - a.level);

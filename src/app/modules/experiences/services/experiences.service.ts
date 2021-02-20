@@ -6,16 +6,9 @@ import { Experience } from '../models/experience.model';
   providedIn: 'root'
 })
 export class ExperiencesService {
-  private _experiences: Experience[] = [];
+  public experiences: Experience[] = [];
   constructor() {
     this.generateExperiences();
-  }
-
-  get experiences(): Experience[] {
-    return this._experiences;
-  }
-  set experiences(experiences: Experience[]) {
-    this._experiences = experiences;
   }
 
   private generateExperiences(): void {

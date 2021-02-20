@@ -13,12 +13,6 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
-      "i18n": {
-        "sourceLocale": "en",
-        "locales": {
-          "fr": "src/locale/messages.fr.xlf"
-        }
-      },
       "architect": {
         "service-work": {
           "builder": "additional-service-worker-builder:service-worker",
@@ -86,9 +80,6 @@
               ],
               "serviceWorker": true,
               "ngswConfigPath": "ngsw-config.json"
-            },
-            "fr": {
-              "localize": ["fr"]
             }
           }
         },
@@ -100,9 +91,6 @@
           "configurations": {
             "production": {
               "browserTarget": "portfolio:build:production"
-            },
-            "fr": {
-              "browserTarget": "portfolio:build:fr"
             }
           }
         },
@@ -141,15 +129,12 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json",
-              "tsconfig.server.json"
-            ],
-            "exclude": ["**/node_modules/**"]
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
           }
         },
         "e2e": {
@@ -203,7 +188,9 @@
           "options": {
             "browserTarget": "portfolio:build:production",
             "serverTarget": "portfolio:server:production",
-            "routes": ["/"]
+            "routes": [
+              "/"
+            ]
           },
           "configurations": {
             "production": {}

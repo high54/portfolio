@@ -23,8 +23,6 @@ import {
   Router,
   RouterOutlet
 } from '@angular/router';
-// Services
-import { AppService } from './app.service';
 // RxJs
 import { first } from 'rxjs/operators';
 import { interval, concat } from 'rxjs';
@@ -56,7 +54,6 @@ export class AppComponent implements OnDestroy, AfterViewInit {
   });
 
   private mobileQuery: MediaQueryList = this.media.matchMedia('(max-width: 600px)');
-  private mobileQueryListener: () => void = () => this.changeDetectorRef.detectChanges();
 
   constructor(
     public dialog: MatDialog,
@@ -67,7 +64,6 @@ export class AppComponent implements OnDestroy, AfterViewInit {
     private updates: SwUpdate,
     private appRef: ApplicationRef,
     private fb: FormBuilder,
-    private appService: AppService,
     private snackBar: MatSnackBar
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
@@ -115,6 +111,8 @@ export class AppComponent implements OnDestroy, AfterViewInit {
         .catch((error) => console.log('Error sharing', error));
     }
   }
+  private mobileQueryListener: () => void = () => this.changeDetectorRef.detectChanges();
+
   private checkCookies(): void {
     if (this.isBrowser) {
       if (!localStorage.getItem('cookies')) {

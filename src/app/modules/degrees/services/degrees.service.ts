@@ -6,17 +6,10 @@ import { Degree } from '../models/degree.model';
   providedIn: 'root'
 })
 export class DegreesService {
-  private _degrees: Degree[] = [];
+  public degrees: Degree[] = [];
 
   constructor() {
     this.generateDegrees();
-  }
-
-  get degrees(): Degree[] {
-    return this._degrees;
-  }
-  set degrees(degrees: Degree[]) {
-    this._degrees = degrees;
   }
 
   private generateDegrees(): void {
