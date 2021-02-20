@@ -4,25 +4,21 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class VideosService {
-  private _videos: any[] = [];
+  public playlists: any[] = [];
   constructor() {
-    this.generateVideos();
+    this.generatePlaylists();
   }
-  get videos(): any[] {
-    return this._videos;
-  }
-  set videos(videos: any[]) {
-    this._videos = videos;
-  }
-  private generateVideos(): void {
-    this.videos.push({
+
+
+  private generatePlaylists(): void {
+    this.playlists.push({
       id: 0,
       title: `Créer une To Do list avec Angular`,
       url: `creer-une-to-do-list-avec-angular`,
       subtitle: ``,
       description: `Création d'une application Todo List sous Angular. Code complet disponible sur GitHub : https://github.com/high54/ngx-todo-list`,
       img: 'assets/miniatures/todo.png',
-      playlist: [
+      videos: [
         {
           id: 0,
           title: `Mise en place de la structure de l'application`,
@@ -81,14 +77,14 @@ export class VideosService {
       ]
     });
 
-    this.videos.push({
+    this.playlists.push({
       id: 1,
       title: `Angular en détail`,
       url: `angular-en-detail`,
       subtitle: ``,
       description: `Dans une série de vidéos, j'entre dans les détails du fonctionnement des APIs et fonctionnalités d'Angular. Code complet disponible sur GitHub : https://github.com/high54/angular-en-detail`,
       img: 'assets/miniatures/en-detail.png',
-      playlist: [
+      videos: [
         {
           id: 0,
           title: `Décorateur @Input()`,
@@ -105,14 +101,14 @@ export class VideosService {
         }
       ]
     });
-    this.videos.push({
+    this.playlists.push({
       id: 2,
       title: `Angular - Feature Module`,
       url: `angular-feature-module`,
       subtitle: ``,
       description: `Explication du principe des features module sous Angular, avec un design évolutif et maintenable.`,
       img: 'assets/miniatures/feature-module.png',
-      playlist: [
+      videos: [
         {
           id: 0,
           title: `Feature module`,

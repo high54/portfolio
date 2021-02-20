@@ -8,7 +8,7 @@ import { Experience } from '../../models/experience.model';
   styleUrls: ['./experience.component.scss']
 })
 export class ExperienceComponent implements OnInit {
-  @Input() experience: Experience;
+  @Input() experience!: Experience;
   constructor() { }
 
   ngOnInit(): void {

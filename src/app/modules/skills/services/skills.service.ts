@@ -6,16 +6,9 @@ import { Skill } from '../models/skill.model';
   providedIn: 'root'
 })
 export class SkillsService {
-  private _skills: Skill[] = [];
+  public skills: Skill[] = [];
   constructor() {
     this.generateSkills();
-  }
-
-  get skills(): Skill[] {
-    return this._skills;
-  }
-  set skills(skills: Skill[]) {
-    this._skills = skills;
   }
 
   private generateSkills(): void {

@@ -1,18 +1,18 @@
 <section class="content-flex">
 
-    <mat-card class="card" *ngFor="let video of videos" (click)="redirect(video)">
+    <mat-card class="card" *ngFor="let playlist of playlists" (click)="redirect(playlist)">
         <mat-card-header>
-            <mat-card-title>{{ video.title }}</mat-card-title>
-            <mat-card-subtitle>{{ video.subtitle }}</mat-card-subtitle>
+            <mat-card-title>{{ playlist.title }}</mat-card-title>
+            <mat-card-subtitle>{{ playlist.subtitle }}</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image [src]="video.img" [attr.alt]="video.title">
+        <img mat-card-image [src]="playlist.img" [attr.alt]="playlist.title">
         <mat-card-content>
             <p>
-                {{ video.description }}
+                {{ playlist.description }}
             </p>
         </mat-card-content>
         <mat-card-actions>
-            <button mat-button *ngIf="canShare()" (click)="share($event,video)">Partager</button>
+            <button mat-button *ngIf="canShare()" (click)="share($event,playlist)">Partager</button>
         </mat-card-actions>
     </mat-card>
 

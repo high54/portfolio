@@ -1,5 +1,6 @@
 import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+
 // Openlayers
 import Map from 'ol/Map';
 import View from 'ol/View';
@@ -13,6 +14,7 @@ import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
 import TileJSON from 'ol/source/TileJSON';
 import XYZ from 'ol/source/XYZ';
+import IconAnchorUnits from 'ol/style/IconAnchorUnits';
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -22,9 +24,9 @@ import XYZ from 'ol/source/XYZ';
 })
 export class MapComponent implements OnInit {
   public isBrowser = false;
-  public map;
+  public map: Map | undefined;
   constructor(
-    @Inject(PLATFORM_ID) private platformId,
+    @Inject(PLATFORM_ID) private platformId: object,
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
   }
@@ -38,8 +40,8 @@ export class MapComponent implements OnInit {
       const iconStyle = new Style({
         image: new Icon({
           anchor: [128, 256],
-          anchorXUnits: 'pixels',
-          anchorYUnits: 'pixels',
+          anchorXUnits: IconAnchorUnits.PIXELS,
+          anchorYUnits: IconAnchorUnits.PIXELS,
           src: 'assets/map/marker.png',
           size: [256, 256],
           scale: 0.2

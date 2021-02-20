@@ -8,10 +8,10 @@ import { Project } from '../../models/project.model';
   styleUrls: ['./project.component.scss']
 })
 export class ProjectComponent {
-  @Input() project: Project;
+  @Input() project!: Project;
   constructor() { }
 
-  public openUrl(project): void {
+  public openUrl(project: Project): void {
     window.open(project.link, '_blank');
   }
 

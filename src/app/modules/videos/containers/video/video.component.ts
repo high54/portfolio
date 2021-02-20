@@ -1,10 +1,12 @@
-import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { isPlatformBrowser } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 // Services
 import { VideosService } from '../../services';
 import { AppService } from 'src/app/app.service';
+// Interfaces
+import { Item } from '../../models/video.interface';
+import { Playlist } from '../../models/playlist.interface';
 
 @Component({
   selector: 'app-video',
@@ -12,11 +14,10 @@ import { AppService } from 'src/app/app.service';
   styleUrls: ['./video.component.scss']
 })
 export class VideoComponent implements OnInit {
-  public video;
+  public playlist!: Playlist;
   public selectedVideo: any;
   public isBrowser = false;
   constructor(
-    @Inject(PLATFORM_ID) private platformId,
     public sanitizer: DomSanitizer,
     private videosService: VideosService,
     private appService: AppService,
@@ -25,14 +26,14 @@ export class VideoComponent implements OnInit {
 
   public ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      this.video = this.videosService.videos.find((video) => video.url === params.id);
-      this.selectedVideo = this.video.playlist[0];
-      this.appService.title = this.video.title;
-      this.appService.description = this.video.description;
+      this.playlist = this.videosService.playlists.find((playlist) => playlist.url === params.id);
+      this.selectedVideo = this.playlist.videos[0];
+      this.appService.title = this.playlist.title;
+      this.appService.description = this.playlist.description;
     });
 
   }
-  public selectVideo(video): void {
+  public selectVideo(video: Item): void {
     if (this.selectedVideo.id !== video.id) {
       this.selectedVideo = video;
     }

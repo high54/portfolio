@@ -13,8 +13,8 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./skill.component.scss']
 })
 export class SkillComponent {
-  @Input() skill: Skill;
-  private subscription: Subscription;
+  @Input() skill!: Skill;
+  private subscription: Subscription | undefined;
   constructor(
     public dialog: MatDialog
   ) { }
@@ -22,7 +22,9 @@ export class SkillComponent {
   public openDialog(skill: Skill): void {
     const dialogRef = this.dialog.open(SkillDetailsDialogComponent, { data: skill });
     this.subscription = dialogRef.afterClosed().subscribe(() => {
-      this.subscription.unsubscribe();
+      if (this.subscription) {
+        this.subscription.unsubscribe();
+      }
     });
   }
 }

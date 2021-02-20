@@ -14,9 +14,10 @@ import { debounceTime, distinctUntilChanged, pluck } from 'rxjs/operators';
   styleUrls: ['./skills.component.scss']
 })
 export class SkillsComponent implements OnInit, AfterViewInit, OnDestroy {
-  @ViewChild('filterInput') filterInput: ElementRef<HTMLInputElement>;
+  @ViewChild('filterInput')
+  filterInput!: ElementRef<HTMLInputElement>;
   public skills: Skill[] = [];
-  private filterSubscription: Subscription;
+  private filterSubscription: Subscription | undefined;
   constructor(
     private skillsService: SkillsService,
     private appService: AppService
@@ -40,9 +41,9 @@ export class SkillsComponent implements OnInit, AfterViewInit, OnDestroy {
       debounceTime(300),
       distinctUntilChanged(),
       pluck('target', 'value')
-    ).subscribe((value: string) => {
+    ).subscribe((value: unknown) => {
       this.skills = this.skillsService.skills.slice();
-      this.skills = this.skills.filter(skill => skill.title.toLowerCase().includes(value.toLowerCase()));
+      this.skills = this.skills.filter(skill => skill.title.toLowerCase().includes((value as string).toLowerCase()));
     });
   }
   public clear(): void {

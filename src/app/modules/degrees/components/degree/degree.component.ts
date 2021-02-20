@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 // Models
 import { Degree } from '../../models/degree.model';
 
@@ -7,11 +7,7 @@ import { Degree } from '../../models/degree.model';
   templateUrl: './degree.component.html',
   styleUrls: ['./degree.component.scss']
 })
-export class DegreeComponent implements OnInit {
-  @Input() degree: Degree;
+export class DegreeComponent {
+  @Input() degree: Degree | undefined;
   constructor() { }
-
-  public ngOnInit(): void {
-  }
-
 }

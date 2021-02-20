@@ -34,6 +34,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 // Components
 import { InstallUpdateComponent } from './core/ui/components';
 import { slideInAnimations } from './router-animation';
+import { ProgressBarMode } from '@angular/material/progress-bar';
 
 @Component({
   selector: 'app-root',
@@ -47,23 +48,22 @@ export class AppComponent implements OnDestroy, AfterViewInit {
   public title = $localize`:Application name:${environment.appName}`;
   public btnAriaLabelSideNav = ':Button toggle side nav:Open side navigation';
   public btnAriaLabelToggleDarkMode = ':Button toggle dark mode:Activate dark mode';
-  public progressMode = 'indeterminate';
+  public progressMode: ProgressBarMode = 'indeterminate';
   public isBrowser = false;
   public darkMode = false;
-  public langague: string;
   public themeForm = this.fb.group({
     theme: [false]
   });
 
-  private mobileQuery: MediaQueryList;
-  private mobileQueryListener: () => void;
+  private mobileQuery: MediaQueryList = this.media.matchMedia('(max-width: 600px)');
+  private mobileQueryListener: () => void = () => this.changeDetectorRef.detectChanges();
 
   constructor(
     public dialog: MatDialog,
     private changeDetectorRef: ChangeDetectorRef,
     private media: MediaMatcher,
     private router: Router,
-    @Inject(PLATFORM_ID) private platformId,
+    @Inject(PLATFORM_ID) private platformId: object,
     private updates: SwUpdate,
     private appRef: ApplicationRef,
     private fb: FormBuilder,
@@ -72,8 +72,6 @@ export class AppComponent implements OnDestroy, AfterViewInit {
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
     if (this.isBrowser) {
-      this.mobileQuery = this.media.matchMedia('(max-width: 600px)');
-      this.mobileQueryListener = () => this.changeDetectorRef.detectChanges();
       this.mobileQuery.addEventListener('change', this.mobileQueryListener);
     }
   }
@@ -119,7 +117,7 @@ export class AppComponent implements OnDestroy, AfterViewInit {
   }
   private checkCookies(): void {
     if (this.isBrowser) {
-      if (!JSON.parse(localStorage.getItem('cookies'))) {
+      if (!localStorage.getItem('cookies')) {
         const snackBarRef = this.snackBar.open(`Cette application utilise des cookies pour vous offrir une meilleure expérience. En utilisant cette application, vous acceptez leur utilisation.`, 'Voir les détails');
         localStorage.setItem('cookies', 'true');
         snackBarRef.onAction().subscribe(() => {
@@ -130,7 +128,8 @@ export class AppComponent implements OnDestroy, AfterViewInit {
   }
   private loadTheme(): void {
     if (this.isBrowser) {
-      const darkMode = JSON.parse(localStorage.getItem('darkMode')) || false;
+      const darkModeString = localStorage.getItem('darkMode');
+      const darkMode = darkModeString ? JSON.parse(darkModeString) : false;
       this.darkMode = darkMode;
       this.themeForm.patchValue({
         theme: darkMode

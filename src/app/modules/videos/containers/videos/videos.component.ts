@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 // Services
 import { VideosService } from '../../services';
 import { AppService } from 'src/app/app.service';
+import { Playlist } from '../../models/playlist.interface';
 
 @Component({
   selector: 'app-videos',
@@ -13,15 +14,15 @@ import { AppService } from 'src/app/app.service';
 export class VideosComponent implements OnInit {
   public isBrowser = false;
   constructor(
-    @Inject(PLATFORM_ID) private platformId,
+    @Inject(PLATFORM_ID) private platformId: object,
     private videosService: VideosService,
     private router: Router,
     private appService: AppService
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
   }
-  get videos(): any[] {
-    return this.videosService.videos;
+  get playlists(): any[] {
+    return this.videosService.playlists;
   }
   public ngOnInit(): void {
     this.appService.title = 'Liste des playlists';
@@ -33,13 +34,13 @@ export class VideosComponent implements OnInit {
   public canShare(): boolean {
     return environment.production && this.isBrowser ? !!navigator.share : true;
   }
-  public share(event, video): void {
+  public share(event: MouseEvent, playlist: Playlist): void {
     if (this.isBrowser) {
       event.stopPropagation();
       navigator.share({
-        url: `https://julienbertacco.netlify.app/videos/${video.url}`,
-        text: video.description,
-        title: `Tutoriel vidéo - ${video.title}`
+        url: `https://julienbertacco.netlify.app/videos/${playlist.url}`,
+        text: playlist.description,
+        title: `Tutoriel vidéo - ${playlist.title}`
       })
         .then(() => console.log('Successful share'))
         .catch((error) => console.log('Error sharing', error));

@@ -1,6 +1,6 @@
-<h2>{{degree.title}} </h2> -
-<h3>{{degree.date | date: 'yyyy'}}</h3>
-<ng-container *ngIf="degree.isObtained; else workInProgress">
+<h2>{{degree?.title}} </h2> -
+<h3>{{degree?.date | date: 'yyyy'}}</h3>
+<ng-container *ngIf="degree?.isObtained; else workInProgress">
     <mat-icon color="primary">check_circle</mat-icon>
 </ng-container>
 <ng-template #workInProgress>
@@ -12,9 +12,9 @@
 
 
 <p>
-    {{ degree.description }}
+    {{ degree?.description }}
 </p>
-<a [attr.href]="degree.report" *ngIf="degree.report" [attr.download]="degree.title" mat-raised-button
+<a [attr.href]="degree?.report" *ngIf="degree?.report" [attr.download]="degree?.title" mat-raised-button
     color="primary">Télécharger le rapport au format
     PDF</a>
 <br>

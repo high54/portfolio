@@ -10,7 +10,7 @@ import { IBreadcrumb } from '../../interfaces/breadcrumb.interface';
   templateUrl: './breadcrumb.component.html'
 })
 export class BreadcrumbComponent implements OnInit {
-  public breadcrumbs: IBreadcrumb[];
+  public breadcrumbs: IBreadcrumb[] = [];
 
   constructor(
     private router: Router,
@@ -29,13 +29,13 @@ export class BreadcrumbComponent implements OnInit {
   public buildBreadcrumb(route: ActivatedRoute, url: string = '', breadcrumbs: IBreadcrumb[] = []): IBreadcrumb[] {
     // If no routeConfig is avalailable we are on the root path
     let label = route.routeConfig && route.routeConfig.data ? route.routeConfig.data.breadcrumb.label : '';
-    let path = route.routeConfig && route.routeConfig.data ? route.routeConfig.path : '';
+    let path = route.routeConfig && route.routeConfig.data ? route.routeConfig.path ? route.routeConfig.path : '' : '';
     // If the route is dynamic route such as ':id', remove it
     const lastRoutePart = path.split('/').pop();
-    const isDynamicRoute = lastRoutePart.startsWith(':');
+    const isDynamicRoute = lastRoutePart ? lastRoutePart.startsWith(':') : false;
     if (isDynamicRoute && !!route.snapshot) {
-      const paramName = lastRoutePart.split(':')[1];
-      path = path.replace(lastRoutePart, route.snapshot.params[paramName]);
+      const paramName = lastRoutePart ? lastRoutePart.split(':')[1] : '';
+      path = path.replace(lastRoutePart ? lastRoutePart : '', route.snapshot.params[paramName]);
       label += route.snapshot.params[paramName];
     }
 

@@ -6,6 +6,8 @@ import { AppService } from 'src/app/app.service';
 import { ContactService } from '../../services';
 // Rxjs
 import { Subscription } from 'rxjs';
+// Interfaces
+import { Contact } from '../../models/contact.interface';
 
 @Component({
   selector: 'app-contact',
@@ -19,7 +21,7 @@ export class ContactComponent implements OnInit, OnDestroy {
     subject: ['', Validators.required],
     message: ['', Validators.required]
   });
-  private sendEmailSub: Subscription;
+  private sendEmailSub: Subscription | undefined;
   constructor(
     private appService: AppService,
     private fb: FormBuilder,
@@ -41,22 +43,28 @@ export class ContactComponent implements OnInit, OnDestroy {
   public sendEmail(): void {
     const { value, valid } = this.contactForm;
     if (valid) {
-      console.log(value);
-      this.sendEmailSub = this.contactService.sendEmail(value).subscribe((response) => {
+      const { name, email, subject, message } = value;
+      const mail: Contact = {
+        name,
+        email,
+        subject,
+        message
+      };
+      this.sendEmailSub = this.contactService.sendEmail(mail).subscribe((response) => {
         this.router.navigateByUrl('contact/success');
       });
     }
   }
-  get name(): AbstractControl {
+  get name(): AbstractControl | null {
     return this.contactForm.get('name');
   }
-  get subject(): AbstractControl {
+  get subject(): AbstractControl | null {
     return this.contactForm.get('subject');
   }
-  get email(): AbstractControl {
+  get email(): AbstractControl | null {
     return this.contactForm.get('email');
   }
-  get message(): AbstractControl {
+  get message(): AbstractControl | null {
     return this.contactForm.get('message');
   }
 }
