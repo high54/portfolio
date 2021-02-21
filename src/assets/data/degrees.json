@@ -1,0 +1,34 @@
+[
+  {
+    "id": 0,
+    "title": "Ingénieur Informatique systèmes d'information",
+    "date": "2019-12-31T23:00:00.000Z",
+    "isObtained": false,
+    "description": "Dernier diplôme qui est en cours d'obtention auprès du CNAM de Bretagne que j'effectue en cours du soir.",
+    "report": null
+  },
+  {
+    "id": 1,
+    "title": "Certification Google - Mobile Web Specialist",
+    "date": "2018-12-31T23:00:00.000Z",
+    "isObtained": true,
+    "description": "Certification Mobile Web Specialist, que j'ai passé sur mon temps libre auprès de Google, afin d'améliorer et mettre en avant mes compétences dans le domaine.",
+    "report": null
+  },
+  {
+    "id": 2,
+    "title": "BAC+4 Concepteur Developpeur Informatique",
+    "date": "2016-12-31T23:00:00.000Z",
+    "isObtained": true,
+    "description": "BAC+4 obtenu au sein de l'ENI école informatique à Chartre de Bretagne (Rennes). Diplôme orienté analyse et conception.",
+    "report": "assets/rapports/bac4-CDI.pdf"
+  },
+  {
+    "id": 3,
+    "title": "Bac +2 Développeur Logiciel",
+    "date": "2015-12-31T23:00:00.000Z",
+    "isObtained": true,
+    "description": "BAC+2 obtenu au sein de l'ENI école informatique à Chartre de Bretagne (Rennes). Diplôme orienté algorithme, langages de programmation et utilisation des frameworks.",
+    "report": "assets/rapports/bac2-DL.pdf"
+  }
+]

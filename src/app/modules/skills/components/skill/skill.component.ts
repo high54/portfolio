@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 // Models
-import { Skill } from '../../models/skill.model';
+import { Skill } from '../../models/skill.interface';
 // Material
 import { MatDialog } from '@angular/material/dialog';
 // Components

@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { VideosService } from '../../services';
 import { AppService } from 'src/app/app.service';
 import { Playlist } from '../../models/playlist.interface';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-videos',
@@ -13,17 +14,16 @@ import { Playlist } from '../../models/playlist.interface';
 })
 export class VideosComponent implements OnInit {
   public isBrowser = false;
+  public playlists$: Observable<Playlist[]> = this.videosService.playlists();
   constructor(
-    @Inject(PLATFORM_ID) private platformId: InjectionToken<object>,
+    @Inject(PLATFORM_ID) private platformId: InjectionToken<Record<string, unknown>>,
     private videosService: VideosService,
     private router: Router,
     private appService: AppService
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
   }
-  get playlists(): any[] {
-    return this.videosService.playlists;
-  }
+
   public ngOnInit(): void {
     this.appService.title = 'Liste des playlists';
     this.appService.description = `Cours vidéos sur Angular, TypeScript, JavaScript et le developpement d'application web`;

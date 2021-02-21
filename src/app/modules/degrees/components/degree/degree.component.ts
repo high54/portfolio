@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 // Models
-import { Degree } from '../../models/degree.model';
+import { Degree } from '../../models/degree.interface';
 
 @Component({
   selector: 'app-degree',

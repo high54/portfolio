@@ -1,49 +1,21 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+// Rxjs
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 // Models
-import { Experience } from '../models/experience.model';
+import { Experience } from '../models/experience.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExperiencesService {
-  public experiences: Experience[] = [];
-  constructor() {
-    this.generateExperiences();
-  }
-
-  private generateExperiences(): void {
-    const experiences: Experience[] = [];
-    const adbDev = new Experience(
-      0,
-      'Full Stack Engineer',
-      'ADB DEV - Cesson Sévigné (35)',
-      `
-      Analyse et conception d'applications Web / Mobile / Desktop et d'API (WebServices) dans le domaine de l'immobilier.
-      Avec : Angular, JavaFX, Ionic, VueJS, ReactJs, Laravel
-      `,
-      new Date(2017, 5, 1),
-      new Date(2019, 2, 1)
-    );
-    const okelp = new Experience(
-      1,
-      'Full Stack Engineer',
-      'OKELP - Rennes (35)',
-      `Analyse et conception d'une application pour aider les personnes en situation de handicap dans la vie de tous les jours (Projet en Pause).`,
-      new Date(2018, 2, 1),
-      new Date(2020, 9, 1)
-    );
-    const sodifrance = new Experience(
-      2,
-      'Tech Lead Front End',
-      'Sodifrance - Saint Grégoire (35)',
-      `J'ai eu l'occasion d'effectuer plusieurs missions pour Sodifrance : - Recherche et Developpement pour un client souhaitant rapidement mettre au point un prototype d'application dans le domaine du BTP. - Migration d'une application dans le domaine de l'assurance et gestion des incidents pour un grand compte. - Leader technique et Architect Front End pour un client dans le domaine de la certification.`,
-      new Date(2019, 2, 1),
-      new Date()
-    );
-    experiences.push(sodifrance);
-    experiences.push(okelp);
-    experiences.push(adbDev);
-    this.experiences = experiences;
+  constructor(
+    private http: HttpClient
+  ) { }
+  public experiences(): Observable<Experience[]> {
+    return this.http.get<Experience[]>('./assets/data/experiences.json')
+      .pipe(catchError((error) => throwError(JSON.stringify(error))));
   }
 
 }

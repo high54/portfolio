@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { AppService } from 'src/app/app.service';
 import { DegreesService } from '../../services/degrees.service';
 // Models
-import { Degree } from '../../models/degree.model';
+import { Degree } from '../../models/degree.interface';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-degrees',
@@ -11,7 +12,7 @@ import { Degree } from '../../models/degree.model';
   styleUrls: ['./degrees.component.scss']
 })
 export class DegreesComponent implements OnInit {
-
+  public degrees$: Observable<Degree[]> = this.degreesService.degrees();
   constructor(
     private degreesService: DegreesService,
     private appService: AppService
@@ -24,8 +25,5 @@ export class DegreesComponent implements OnInit {
         mes compétences dans le domaine de l'informatique. Que ce soit au niveau fonctionnel ou métier.`;
   }
 
-  get degrees(): Degree[] {
-    return this.degreesService.degrees;
-  }
 
 }

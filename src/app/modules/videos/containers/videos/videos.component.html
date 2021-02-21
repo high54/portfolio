@@ -1,6 +1,5 @@
 <section class="content-flex">
-
-    <mat-card class="card" *ngFor="let playlist of playlists" (click)="redirect(playlist)">
+    <mat-card class="card" *ngFor="let playlist of playlists$ | async" (click)="redirect(playlist)">
         <mat-card-header>
             <mat-card-title>{{ playlist.title }}</mat-card-title>
             <mat-card-subtitle>{{ playlist.subtitle }}</mat-card-subtitle>

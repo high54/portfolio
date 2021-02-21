@@ -1,0 +1,37 @@
+[
+  {
+    "id": 2,
+    "title": "Angular X Starter",
+    "description": "Création d'un projet disposant de toutes les fonctionnalités avancé d'Angular ainsi que des meilleurs pratique de développement pour industrialisé la création d'application web, de bureau et pour smartphone.",
+    "img": "https://github-link-card.s3.ap-northeast-1.amazonaws.com/high54/angular-x-starter.png",
+    "link": "https://github.com/high54/angular-x-starter"
+  },
+  {
+    "id": 4,
+    "title": "Communes France JSON",
+    "description": "Liste des communes de France au format JSON",
+    "img": "https://github-link-card.s3.ap-northeast-1.amazonaws.com/high54/Communes-France-JSON.png",
+    "link": "https://github.com/high54/Communes-France-JSON"
+  },
+  {
+    "id": 3,
+    "title": "Angular 6 Social Login",
+    "description": "Composant Angular pour l'ajout rapide des boutons de connexion Google, Facebook, Twitter et LinkedIn",
+    "img": "https://github-link-card.s3.ap-northeast-1.amazonaws.com/high54/angular-6-social-login.png",
+    "link": "https://github.com/high54/angular-6-social-login"
+  },
+  {
+    "id": 0,
+    "title": "Ng Fast App",
+    "description": "Création d'une CLI pour l'automatisation de la création d'application sous Angular, avec l'installation d'Angular Material, l'ouverture de VS Code et de lancement du serveur de développement.",
+    "img": "assets/projects/ngfast.png",
+    "link": "https://github.com/high54/ngfast"
+  },
+  {
+    "id": 1,
+    "title": "Ng Agenda",
+    "description": "Création d'un agenda comme celui de Google Agenda pour Angular.",
+    "img": "assets/projects/ngagenda.png",
+    "link": "https://github.com/high54/ng-agenda"
+  }
+]

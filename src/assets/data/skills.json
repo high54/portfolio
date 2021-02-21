@@ -1,0 +1,93 @@
+[
+  {
+    "id": 2,
+    "title": "Angular",
+    "level": 5,
+    "description": "\n      Angular, c'est un coup de coeur. Qu'on le veuille ou non, c'est le seul Framework JavaScript(TypeScript). Les \"autres framework\" ne sont que des bibliothèques à côté.\n      Angular inclut tout ce qui est nécessaire au bon fonctionnement d'une application.\n      Après, effectivement il faut concevoir des applications et non des sites internet avec. (Mon portfolio tourne sous Angular ;)).\n      "
+  },
+  {
+    "id": 1,
+    "title": "TypeScript",
+    "level": 5,
+    "description": "TypeScript est une sur couche à JavaScript.\n      Je concidère ce langage comme étant un langage de programmation côté développeur.\n      "
+  },
+  {
+    "id": 0,
+    "title": "JavaScript",
+    "level": 5,
+    "description": "\n      JavaScript est un langage très intéressant. Il permet via de nombreuses API d'intéragire grandement avec l'appareil de l'utilisateur tout en étant cross-plateforme.\n      "
+  },
+  {
+    "id": 6,
+    "title": "RxJs",
+    "level": 5,
+    "description": "\n      Reactive X for JavaScript est l'une de mes bibliothèques JavaScript favoris. C'est une bibliothèque qui fournit des API pour de la programmation asynchrone avec des flux observable.\n      Très important dans le domaine du web. Point positif, Angular a était construit avec.\n      "
+  },
+  {
+    "id": 5,
+    "title": "Responsive Design",
+    "level": 4,
+    "description": "\n      Une obligation dans le domaine du web !\n      "
+  },
+  {
+    "id": 9,
+    "title": "Progressive Web Application",
+    "level": 4,
+    "description": "\n      Le meilleur du web. Développer une application web, ajouter du responsive, et la rendre installable sur les appareils utilisateur. (Vous vous trouvez sur une PWA :) ).\n      "
+  },
+  {
+    "id": 10,
+    "title": "Anglais professionnel",
+    "level": 4,
+    "description": "\n      Le monde informatique étant dominé par la Silicon Valley (USA), il est indispensable de savoir lire l'Anglais.\n      "
+  },
+  {
+    "id": 11,
+    "title": "Gitlab",
+    "level": 4,
+    "description": "\n      Ma forge logiciel favorite ! J'adore bidouiller sur GitLab et automatiser mes applications dessus !\n      "
+  },
+  {
+    "id": 12,
+    "title": "Server Side Rendering",
+    "level": 4,
+    "description": "\n      Important quand il s'agit de perfomance sur le web ! (Le portfolio utilise également du Rendu Côté Serveur :) ).\n      "
+  },
+  {
+    "id": 15,
+    "title": "ExpressJs",
+    "level": 4,
+    "description": "\n      J'ai eu pour mission d'améliorer les performances d'une API Gateway sous Express pour une filliale basé à Londre d'un grand compte dans le domaine des jeux/loterie.\n      "
+  },
+  {
+    "id": 14,
+    "title": "Expérience utilisateur (UX)",
+    "level": 4,
+    "description": "\n      À vous de me le dire ! N'hésitez pas à m'envoyer un message depuis la section Contact afin de me dire vous avez apprécier votre expérience sur cette application !\n      "
+  },
+  {
+    "id": 3,
+    "title": "VueJs",
+    "level": 3,
+    "description": "\n      VueJs est une bibliothèque JavaScript incorporant le meilleur d'Angular et de ReactJs pour le développement de petite applications ou de sites internet.\n      J'ai pratiqué VueJs directement sur une grosse application avec le stats management dès mon premier jour d'alternance.\n      Par la suite j'ai eu l'occasion d'effectuer une formation dessus.\n      "
+  },
+  {
+    "id": 4,
+    "title": "Accéssibilité Web (A11Y)",
+    "level": 3,
+    "description": "\n      L'accéssibilité web est un point important dans la conception d'application web ou de site internet.\n      Cela prends plusieurs formes, à commencer par celle des personnes en situation de handicap. Il y a une forme moins prise en compte, celle du manque de débit internet.\n      Rendre une application web ou un site internet accéssible à tous et à toutes veut également dire, le rendre accéssible à ceux disposant d'un faible débit.\n      "
+  },
+  {
+    "id": 7,
+    "title": "Git",
+    "level": 3,
+    "description": "\n      Un incontournable dans le monde de la programmation !\n      "
+  },
+  {
+    "id": 8,
+    "title": "NgRx",
+    "level": 3,
+    "description": "\n      Du state management basé sur le pattern Redux et la bibliothèque RxJs pour Angular.\n      "
+  },
+  { "id": 13, "title": "NodeJs", "level": 3, "description": "\n      " }
+]

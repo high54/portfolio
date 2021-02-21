@@ -6,8 +6,6 @@ import { VideosRoutingModule } from './videos-routing.module';
 import { VideosMaterialModule } from './video-material.module';
 // Containers
 import * as fromContainers from './containers';
-// Components
-import * as fromComponents from './components';
 // Services
 import * as fromServices from './services';
 
@@ -18,8 +16,7 @@ import * as fromServices from './services';
         VideosMaterialModule
     ],
     declarations: [
-        ...fromContainers.containers,
-        ...fromComponents.components
+        ...fromContainers.containers
     ],
     providers: [
         ...fromServices.services

@@ -3,7 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { ExperiencesService } from '../../services';
 import { AppService } from 'src/app/app.service';
 // Models
-import { Experience } from '../../models/experience.model';
+import { Experience } from '../../models/experience.interface';
+// Rxjs
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-experiences',
@@ -11,7 +13,7 @@ import { Experience } from '../../models/experience.model';
   styleUrls: ['./experiences.component.scss']
 })
 export class ExperiencesComponent implements OnInit {
-
+  public experiences$: Observable<Experience[]> = this.expService.experiences();
   constructor(
     private expService: ExperiencesService,
     private appService: AppService
@@ -22,8 +24,5 @@ export class ExperiencesComponent implements OnInit {
     this.appService.description = `C'est en forgeant qu'on devient forgeron.`;
   }
 
-  get experiences(): Experience[] {
-    return this.expService.experiences;
-  }
 
 }

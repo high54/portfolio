@@ -1,4 +1,4 @@
-<section id="video">
+<section id="video" *ngIf="playlist">
     <aside id="playlist">
         <mat-selection-list [multiple]="false" role="list">
             <mat-list-option role="listitem" [selected]="video.id === selectedVideo.id"

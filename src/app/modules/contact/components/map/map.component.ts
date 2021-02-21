@@ -1,4 +1,4 @@
-import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, Inject, InjectionToken } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 // Openlayers
@@ -26,7 +26,7 @@ export class MapComponent implements OnInit {
   public isBrowser = false;
   public map: Map | undefined;
   constructor(
-    @Inject(PLATFORM_ID) private platformId: object,
+    @Inject(PLATFORM_ID) private platformId: InjectionToken<Record<string, unknown>>,
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
   }

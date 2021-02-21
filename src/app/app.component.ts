@@ -6,7 +6,8 @@ import {
   ViewChild,
   PLATFORM_ID,
   Inject,
-  ApplicationRef
+  ApplicationRef,
+  InjectionToken
 } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { MediaMatcher } from '@angular/cdk/layout';
@@ -60,7 +61,7 @@ export class AppComponent implements OnDestroy, AfterViewInit {
     private changeDetectorRef: ChangeDetectorRef,
     private media: MediaMatcher,
     private router: Router,
-    @Inject(PLATFORM_ID) private platformId: object,
+    @Inject(PLATFORM_ID) private platformId: InjectionToken<Record<string, unknown>>,
     private updates: SwUpdate,
     private appRef: ApplicationRef,
     private fb: FormBuilder,
@@ -116,7 +117,10 @@ export class AppComponent implements OnDestroy, AfterViewInit {
   private checkCookies(): void {
     if (this.isBrowser) {
       if (!localStorage.getItem('cookies')) {
-        const snackBarRef = this.snackBar.open(`Cette application utilise des cookies pour vous offrir une meilleure expérience. En utilisant cette application, vous acceptez leur utilisation.`, 'Voir les détails');
+        const snackBarRef = this.snackBar.open(
+          `Cette application utilise des cookies pour vous offrir une meilleure expérience.
+          En utilisant cette application, vous acceptez leur utilisation.`,
+          'Voir les détails');
         localStorage.setItem('cookies', 'true');
         snackBarRef.onAction().subscribe(() => {
           this.router.navigateByUrl('cookies');

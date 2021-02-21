@@ -1,0 +1,26 @@
+[
+  {
+    "id": 2,
+    "title": "Tech Lead Front End",
+    "subtitle": "Sodifrance - Saint Grégoire (35)",
+    "description": "J'ai eu l'occasion d'effectuer plusieurs missions pour Sodifrance : - Recherche et Developpement pour un client souhaitant rapidement mettre au point un prototype d'application dans le domaine du BTP. - Migration d'une application dans le domaine de l'assurance et gestion des incidents pour un grand compte. - Leader technique et Architect Front End pour un client dans le domaine de la certification.",
+    "startDate": "2019-02-28T23:00:00.000Z",
+    "endDate": "2021-02-21T09:03:17.649Z"
+  },
+  {
+    "id": 1,
+    "title": "Full Stack Engineer",
+    "subtitle": "OKELP - Rennes (35)",
+    "description": "Analyse et conception d'une application pour aider les personnes en situation de handicap dans la vie de tous les jours (Projet en Pause).",
+    "startDate": "2018-02-28T23:00:00.000Z",
+    "endDate": "2020-09-30T22:00:00.000Z"
+  },
+  {
+    "id": 0,
+    "title": "Full Stack Engineer",
+    "subtitle": "ADB DEV - Cesson Sévigné (35)",
+    "description": "\n      Analyse et conception d'applications Web / Mobile / Desktop et d'API (WebServices) dans le domaine de l'immobilier.\n      Avec : Angular, JavaFX, Ionic, VueJS, ReactJs, Laravel\n      ",
+    "startDate": "2017-05-31T22:00:00.000Z",
+    "endDate": "2019-02-28T23:00:00.000Z"
+  }
+]

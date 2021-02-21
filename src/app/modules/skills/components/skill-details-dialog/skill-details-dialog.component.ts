@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 // Material
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 // Models
-import { Skill } from '../../models/skill.model';
+import { Skill } from '../../models/skill.interface';
 @Component({
   selector: 'app-skill-details-dialog',
   templateUrl: './skill-details-dialog.component.html',
